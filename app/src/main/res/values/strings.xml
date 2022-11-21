@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Capstone</string>
+    <string name="title_home">Movie</string>
+    <string name="title_dashboard">Trailer</string>
+    <string name="title_notifications">Watchlist</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="movie">Movie</string>
+    <string name="popular">Popular</string>
+    <string name="up_coming">Up Coming</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="retry">Retry</string>
+    <string name="no_internet_connection_please_try_again">No internet connection, please try again</string>
+    <string name="title">Title</string>
+    <string name="genres">Genres</string>
+    <string name="trailers">Trailers</string>
+    <string name="more_information">More information</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="vote_average">Vote Average</string>
+    <string name="release_date">Release Date</string>
+    <string name="overview">Overview</string>
+    <string name="collection">Collection</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="language">Original Language</string>
+    <string name="status">Status</string>
+    <string name="runtime">Runtime</string>
+    <string name="production_countries">Production Country</string>
+    <string name="budget">Budget</string>
+    <string name="revenue">Revenue</string>
+    <string name="production_companies">Production Company</string>
+    <string name="countries">Countries</string>
+    <string name="favorite">Favorite</string>
+    <string name="trailers_name">Trailers Name</string>
+</resources>

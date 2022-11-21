@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    tools:context=".ui.activity.DetailMovieActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitleMovie"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:textColor="@color/grey"
+            android:textSize="20sp"/>
+
+
+        <ToggleButton
+            android:id="@+id/btnWatchlist"
+            android:textOn=""
+            android:textOff=""
+            android:layout_gravity="end"
+            android:background="@drawable/item_watchlist"
+            android:layout_marginEnd="10sp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutDetail"
+        app:tabMode="scrollable"
+        android:layout_marginTop="5dp"
+        app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        app:tabTextColor="@color/primary_color"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorColor="@color/primary_color"
+        app:tabRippleColor="@color/primary_color"
+        app:tabSelectedTextColor="@color/primary_color"
+        android:background="@color/light_grey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

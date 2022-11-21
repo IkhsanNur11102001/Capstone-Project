@@ -1,0 +1,126 @@
+package com.nur_ikhsan.themoviedb.ui.search
+
+import android.content.res.Configuration
+import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.paging.LoadState
+import androidx.recyclerview.widget.GridLayoutManager
+import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
+import com.nur_ikhsan.themoviedb.databinding.FragmentSearchBinding
+import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
+
+    private var _binding : FragmentSearchBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel by viewModels<SearchViewModel>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.apply {
+            searchMovie.onActionViewExpanded()
+            searchMovie.setOnQueryTextListener(this@SearchFragment)
+
+            toolbarMovie.setNavigationOnClickListener {
+                requireActivity().onBackPressed()
+            }
+        }
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query!!.isNotEmpty()){
+            viewModel.getResultMovies(query = query).observe(viewLifecycleOwner){ result->
+                val adapterMovies = AdapterMovies()
+                adapterMovies.submitData(viewLifecycleOwner.lifecycle, result)
+                binding.apply {
+
+                    btnRetry.setOnClickListener {
+                        adapterMovies.retry()
+                    }
+
+                    rvResultMovie.adapter = adapterMovies.withLoadStateHeaderAndFooter(
+                        header = MovieLoadStateAdapter{adapterMovies.retry()},
+                        footer = MovieLoadStateAdapter{adapterMovies.retry()})
+                    rvResultMovie.scrollToPosition(0)
+
+                    adapterMovies.addLoadStateListener { loadState->
+                        binding.apply {
+                            tvError.isVisible = loadState.source.refresh is LoadState.Error
+                            btnRetry.isVisible = loadState.source.refresh is LoadState.Error
+                            rvResultMovie.isVisible = loadState.source.refresh is LoadState.NotLoading
+                        }
+                    }
+
+                    rvResultMovie.isVisible = true
+
+                    if (context?.applicationContext!!.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+                        rvResultMovie.layoutManager = GridLayoutManager(context, 3)
+                    }else{
+                        rvResultMovie.layoutManager = GridLayoutManager(context, 6)
+                    }
+                }
+            }
+
+        }else{
+            binding.rvResultMovie.isVisible = false
+        }
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if (newText!!.isNotEmpty()){
+            viewModel.getResultMovies(query = newText).observe(viewLifecycleOwner){ result->
+                val adapterMovies = AdapterMovies()
+                adapterMovies.submitData(viewLifecycleOwner.lifecycle, result)
+                binding.apply {
+
+                    btnRetry.setOnClickListener {
+                        adapterMovies.retry()
+                    }
+
+                    rvResultMovie.isVisible = true
+
+                    rvResultMovie.adapter = adapterMovies.withLoadStateHeaderAndFooter(
+                        header = MovieLoadStateAdapter{adapterMovies.retry()},
+                        footer = MovieLoadStateAdapter{adapterMovies.retry()})
+
+                    rvResultMovie.scrollToPosition(0)
+
+                    adapterMovies.addLoadStateListener { loadState->
+                        binding.apply {
+                            tvError.isVisible = loadState.source.refresh is LoadState.Error
+                            btnRetry.isVisible = loadState.source.refresh is LoadState.Error
+                            rvResultMovie.isVisible = loadState.source.refresh is LoadState.NotLoading
+                        }
+                    }
+
+                    if (context?.applicationContext!!.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+                        rvResultMovie.layoutManager = GridLayoutManager(context, 3)
+                    }else{
+                        rvResultMovie.layoutManager = GridLayoutManager(context, 6)
+                    }
+                }
+            }
+        }else{
+            binding.rvResultMovie.isVisible = false
+        }
+        return false
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

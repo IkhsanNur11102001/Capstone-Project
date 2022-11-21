@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.MovieFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_navigation_home_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" />
+        <action
+            android:id="@+id/action_navigation_home_to_topRatedFragment"
+            app:destination="@id/topRatedFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_popularFragment"
+            app:destination="@id/popularFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_upComingFragment"
+            app:destination="@id/upComingFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_nowPlayingFragment"
+            app:destination="@id/nowPlayingFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_favorite"
+            app:destination="@id/navigation_favorite" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.nur_ikhsan.themoviedb.ui.favorite.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_watchlist" />
+    <fragment
+        android:id="@+id/navigation_genres"
+        android:name="com.nur_ikhsan.themoviedb.ui.genres.GenresFragment"
+        android:label="Genres"
+        tools:layout="@layout/fragment_genres" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search"/>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/topRatedFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.TopRatedFragment"
+        android:label="fragment_top_rated"
+        tools:layout="@layout/fragment_top_rated" />
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.PopularFragment"
+        android:label="fragment_popular"
+        tools:layout="@layout/fragment_popular" />
+    <fragment
+        android:id="@+id/upComingFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.UpComingFragment"
+        android:label="fragment_up_coming"
+        tools:layout="@layout/fragment_up_coming" />
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.NowPlayingFragment"
+        android:label="fragment_now_playing"
+        tools:layout="@layout/fragment_now_playing" />
+</navigation>

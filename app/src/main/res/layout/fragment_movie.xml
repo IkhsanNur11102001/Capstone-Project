@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.movie.MovieFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMovie"
+        android:padding="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/nav_search"
+        app:navigationIcon="@drawable/ic_profile"
+        app:titleTextColor="@color/grey" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_below="@id/toolbarMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <!--favorite trailers-->
+        <LinearLayout
+            android:id="@+id/itemFavorite"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/favorite"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTrailers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/trailers"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primary_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFavorite"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <!--watchlist-->
+        <LinearLayout
+            android:id="@+id/itemWatchlist"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/itemFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/watchlist"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvWatchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primary_color"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWatchlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+
+        <!--top rated-->
+        <LinearLayout
+            android:id="@+id/itemTopRated"
+            android:layout_below="@id/itemWatchlist"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/top_rated"
+                android:textColor="@color/grey"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/tvTopRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:text="@string/movie"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                app:drawableEndCompat="@drawable/ic_next" />
+
+        </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/tvErrorTopRated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_above="@id/btnRetryTopRated"
+                    android:textColor="@color/primary_color"
+                    android:textAlignment="center"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryTopRated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopRated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <!--popular-->
+        <LinearLayout
+            android:id="@+id/itemPopular"
+            android:orientation="vertical"
+            android:layout_below="@id/itemTopRated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popular"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvPopular"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/primary_color"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPopular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/tvErrorPopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryPopular"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryPopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <!--up coming-->
+        <LinearLayout
+            android:id="@+id/itemUpComing"
+            android:orientation="vertical"
+            android:layout_below="@id/itemPopular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/up_coming"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvUpComing"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/primary_color"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+
+                <TextView
+                    android:id="@+id/tvErrorUpComing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryUpComing"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryUpComing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUpComing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <!--now playing-->
+        <LinearLayout
+            android:id="@+id/itemNowPlaying"
+            android:orientation="vertical"
+            android:layout_below="@id/itemUpComing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/now_playing"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvNowPlaying"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/primary_color"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+
+                <TextView
+                    android:id="@+id/tvErrorNowPlaying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryNowPlaying"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryNowPlaying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNowPlaying"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_grey"
+    tools:context=".ui.activity.GenresActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/genres"
+        app:titleTextColor="@color/grey">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGenres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarMovie"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnRetry"
+        android:layout_centerInParent="true"
+        android:text="@string/no_internet_connection_please_try_again"
+        android:textAlignment="center"
+        android:textColor="@color/primary_color"
+        android:textSize="15sp"
+        app:drawableTopCompat="@drawable/ic_signal" />
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:text="@string/retry"
+        android:textAllCaps="false"
+        android:textColor="@color/light_grey" />
+
+</RelativeLayout>

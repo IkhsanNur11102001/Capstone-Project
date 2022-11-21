@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_grey"
+    tools:context=".ui.movie.UpComingFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMovie"
+        app:title="@string/up_coming"
+        app:titleTextColor="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_back"/>
+
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/btn_retry"
+        android:textColor="@color/primary_color"
+        android:textAlignment="center"
+        android:text="@string/no_internet_connection_please_try_again"
+        android:textSize="15sp"
+        app:drawableTopCompat="@drawable/ic_signal" />
+
+    <Button
+        android:id="@+id/btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:text="@string/retry"
+        android:textAllCaps="false"
+        android:textColor="@color/light_grey" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUpComing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarMovie"
+        android:padding="5dp" />
+
+</RelativeLayout>
