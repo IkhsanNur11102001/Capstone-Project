@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.nur_ikhsan.themoviedb.databinding.FragmentDashboardBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.TrailersAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,7 +47,7 @@ class DashboardFragment : Fragment() {
         }
 
         binding.rvFavorite.adapter = trailersAdapter
-        binding.rvFavorite.layoutManager = GridLayoutManager(context, 4, GridLayoutManager.HORIZONTAL, false)
+        binding.rvFavorite.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
     }
 
     override fun onDestroyView() {

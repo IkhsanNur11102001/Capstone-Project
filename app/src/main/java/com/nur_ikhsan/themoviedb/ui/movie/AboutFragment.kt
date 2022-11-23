@@ -17,7 +17,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.nur_ikhsan.themoviedb.BuildConfig
 import com.nur_ikhsan.themoviedb.R
-import com.nur_ikhsan.themoviedb.data.repository.Result
+import com.nur_ikhsan.themoviedb.utils.Result
 import com.nur_ikhsan.themoviedb.databinding.FragmentAboutBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailCollectionActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
@@ -25,7 +25,6 @@ import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
 import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteViewModel
 import com.nur_ikhsan.themoviedb.ui.genres.adapter.GenresDetailAdapter
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.TrailersAdapter
-import com.nur_ikhsan.themoviedb.utils.DateFormat
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
 import java.util.*
@@ -129,27 +128,15 @@ class AboutFragment : Fragment() {
             if (detail != null){
                 binding.apply {
 
-                    Glide.with(context?.applicationContext!!)
-                        .load(Uri.parse(BuildConfig.URL_IMAGE + detail.posterPath))
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .transition(DrawableTransitionOptions.withCrossFade(100))
-                        .transform(RoundedCorners(30))
-                        .into(imageMovie)
-
-                    tvTitleMovie.text = detail.originalTitle
-                    tvTitleMovie.isSelected = true
-                    tvVoteAverage.text = detail.voteAverage.toString()
-                    tvOverview.text = detail.overview
-                    tvReleaseDate.text = DateFormat.formatDate(detail.releaseDate, "dd, MMMM yyyy")
-
                     tvMoreInformation.text = resources.getString(R.string.more_information)
                     tvLanguage.text = detail.originalLanguage
 
                     val language = Locale(detail.originalLanguage)
                     language.displayLanguage
 
-
+                    tvOriginalTitle.text = detail.originalTitle
                     tvLanguage.text = language.displayLanguage
+                    tvOverview.text = detail.overview
                     tvStatus.text = detail.status
                     tvRuntime.text = "${detail.runtime / 60} hrs" + " ${detail.runtime % 60} mins"
                     tvCountries.text = detail.productionCountries.joinToString { it.name }

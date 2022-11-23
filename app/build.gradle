@@ -64,6 +64,10 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.13.2'
 
+    //Coil
+    def coilVersion = "2.2.2"
+    implementation("io.coil-kt:coil-compose:$coilVersion")
+
     //Dagger hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"

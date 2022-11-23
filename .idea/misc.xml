@@ -10,12 +10,15 @@
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/favorite_dua.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_add.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_added.xml" value="0.126" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_back.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_baseline_manage_search_24.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_date.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_next.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_no_image.xml" value="0.126" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_open_with.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_profile.xml" value="0.126" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_share.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_signal.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/ic_star.xml" value="0.126" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/drawable/item_watchlist.xml" value="0.126" />
@@ -23,18 +26,23 @@
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_detail_movie.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_genres.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_main.xml" value="0.19444444444444445" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_movie_providers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_profile.xml" value="0.21197916666666666" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/activity_providers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_about.xml" value="0.25" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_dashboard.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_genres.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_home.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_movie.xml" value="0.21197916666666666" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_movie_providers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_now_playing.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_popular.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_profile.xml" value="0.19947916666666668" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_providers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_result_movie.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_search.xml" value="0.19947916666666668" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_top_rated.xml" value="0.21197916666666666" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_up_coming.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/fragment_watchlist.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_certification.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_genres.xml" value="0.21197916666666666" />
@@ -43,8 +51,10 @@
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_load_state.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_movie.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_no_internet.xml" value="0.21197916666666666" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_providers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/layout/item_trailers.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/menu/bottom_nav_menu.xml" value="0.19444444444444445" />
+        <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/menu/btn_share.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/menu/item_search.xml" value="0.21197916666666666" />
         <entry key="..\:/MY DOCUMENTS/PROJECT ANDROID STUDIO SAYA/THE MOVIE DB/app/src/main/res/menu/nav_search.xml" value="0.21197916666666666" />
       </map>

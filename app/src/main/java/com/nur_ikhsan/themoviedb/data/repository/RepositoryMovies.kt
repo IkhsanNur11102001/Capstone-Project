@@ -72,6 +72,49 @@ constructor(private val apiInterface: ApiInterface) {
         ), pagingSourceFactory = {PagingSourceResultMovie(apiInterface, query = query)}
         ).liveData
 
+    fun getMovieByProviders(providersId : String) =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceProviders(apiInterface = apiInterface, providersId)}
+        ).liveData
+
+
+    fun getNetflixMovies() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceNetflix(apiInterface = apiInterface)}
+        ).liveData
+
+
+    fun getAppleMovies() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceApple(apiInterface = apiInterface)}
+        ).liveData
+
+
+    fun getDisneyMovies() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceDisney(apiInterface = apiInterface)}
+        ).liveData
+
+    fun getHboMax() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceHboMax(apiInterface)}
+    ).liveData
+
 
     fun getDetailCollection(collectionId : String) : LiveData<BelongsToCollection>{
         val resultCollection = MutableLiveData<BelongsToCollection>()
@@ -134,7 +177,6 @@ constructor(private val apiInterface: ApiInterface) {
         })
         return resultDetail
     }
-
 
 
     fun getCollectionMovie(movieId: String) : LiveData<BelongsToCollection>{
@@ -202,6 +244,31 @@ constructor(private val apiInterface: ApiInterface) {
             }
         })
         return resultGenres
+    }
+
+    fun getProviders() : LiveData<List<ProvidersItem>>{
+        val resultProviders = MutableLiveData<List<ProvidersItem>>()
+        val response = apiInterface.getProviders(REGION)
+
+        response.enqueue(object : Callback<ResponseProviders>{
+            override fun onResponse(
+                call: Call<ResponseProviders>,
+                response: Response<ResponseProviders>
+            ) {
+                if (response.isSuccessful){
+                    resultProviders.value = response.body()?.results
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseProviders>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return resultProviders
+    }
+
+    companion object{
+        const val REGION = "US"
     }
 
 }

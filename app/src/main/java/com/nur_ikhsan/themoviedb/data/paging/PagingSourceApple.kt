@@ -5,24 +5,25 @@ import androidx.paging.PagingState
 import com.nur_ikhsan.themoviedb.data.network.ApiInterface
 import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 
-class PagingSourcePopular(private val apiInterface: ApiInterface) : PagingSource<Int, ResultMovie>() {
+class PagingSourceApple(private val apiInterface: ApiInterface) : PagingSource<Int, ResultMovie>(){
 
     companion object{
-        const val FIRST_PAGE = 1
-        const val POPULAR = "popular"
+        const val STARTING_PAGE = 1
         const val REGION = "US"
+        const val YEAR = 2022
+        const val APPLE_PLUS = "2"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
-            val page = params.key ?: FIRST_PAGE
-            val response = apiInterface.getAllMovies(POPULAR, page, REGION)
-            val dataMovies = response.body()?.results
+            val page = params.key?: STARTING_PAGE
+            val response = apiInterface.getMovieWithProviders(providers = APPLE_PLUS, REGION, page, YEAR)
+            val resultMovie = response.body()?.results
 
             LoadResult.Page(
-                data = dataMovies!!,
-                prevKey = if (page == FIRST_PAGE) null else page -1,
-                nextKey = if (dataMovies.isEmpty()) null else page +1
+                data = resultMovie!!,
+                prevKey = if (page == STARTING_PAGE) null else page -1,
+                nextKey = if (resultMovie.isEmpty()) null else page +1
             )
         }catch (e : Exception){
             LoadResult.Error(e)

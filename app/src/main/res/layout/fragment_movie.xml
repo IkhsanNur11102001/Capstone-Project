@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.movie.MovieFragment">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMovie"
-        android:padding="5dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         app:menu="@menu/nav_search"
-        app:navigationIcon="@drawable/ic_profile"
-        app:titleTextColor="@color/grey" />
+        app:navigationIcon="@drawable/ic_profile" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested"
@@ -29,6 +28,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
 
         <!--favorite trailers-->
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/favorite"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/light_grey"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
                     android:layout_marginStart="10dp"
                     android:text="@string/trailers"
                     android:textAllCaps="true"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:drawableEndCompat="@drawable/ic_next" />
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/watchlist"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/light_grey"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -106,7 +106,7 @@
                     android:layout_marginStart="10dp"
                     android:text="@string/movie"
                     android:textAllCaps="true"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:drawableEndCompat="@drawable/ic_next" />
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="@string/top_rated"
-                android:textColor="@color/grey"
+                android:textColor="@color/light_grey"
                 android:textSize="20sp"/>
 
             <TextView
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
-                android:textColor="@color/primary_color"
+                android:textColor="@color/grey"
                 android:text="@string/movie"
                 android:textAllCaps="true"
                 android:textSize="12sp"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_above="@id/btnRetryTopRated"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/light_grey"
                     android:textAlignment="center"
                     android:text="@string/no_internet_connection_please_try_again"
                     android:textSize="15sp"
@@ -179,6 +179,7 @@
                     android:id="@+id/btnRetryTopRated"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
@@ -219,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/popular"
                     android:textStyle="bold"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/light_grey"
                     android:textSize="20sp"/>
 
                 <TextView
@@ -228,7 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/grey"
                     android:text="@string/movie"
                     android:textAllCaps="true"
                     android:textSize="12sp"
@@ -254,7 +255,7 @@
                     android:layout_centerInParent="true"
                     android:text="@string/no_internet_connection_please_try_again"
                     android:textAlignment="center"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/light_grey"
                     android:textSize="15sp"
                     app:drawableTopCompat="@drawable/ic_signal" />
 
@@ -262,6 +263,7 @@
                     android:id="@+id/btnRetryPopular"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
@@ -295,7 +297,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/up_coming"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/light_grey"
                     android:textSize="20sp"/>
 
                 <TextView
@@ -304,7 +306,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/grey"
                     android:text="@string/movie"
                     android:textAllCaps="true"
                     android:textSize="12sp"
@@ -325,7 +327,7 @@
                     android:layout_centerInParent="true"
                     android:text="@string/no_internet_connection_please_try_again"
                     android:textAlignment="center"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/light_grey"
                     android:textSize="15sp"
                     app:drawableTopCompat="@drawable/ic_signal" />
 
@@ -336,6 +338,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/orange"
                     android:layout_marginBottom="40dp"
                     android:text="@string/retry"
                     android:textAllCaps="false"
@@ -372,7 +375,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/now_playing"
-                    android:textColor="@color/grey"
+                    android:textColor="@color/light_grey"
                     android:textSize="20sp"/>
 
                 <TextView
@@ -381,7 +384,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/grey"
                     android:text="@string/movie"
                     android:textAllCaps="true"
                     android:textSize="12sp"
@@ -403,7 +406,7 @@
                     android:layout_centerInParent="true"
                     android:text="@string/no_internet_connection_please_try_again"
                     android:textAlignment="center"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/light_grey"
                     android:textSize="15sp"
                     app:drawableTopCompat="@drawable/ic_signal" />
 
@@ -411,6 +414,7 @@
                     android:id="@+id/btnRetryNowPlaying"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
@@ -429,6 +433,327 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+
+
+
+        <!--netflix-->
+        <LinearLayout
+            android:id="@+id/itemNetflix"
+            android:orientation="vertical"
+            android:layout_below="@id/itemNowPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/netflix"
+                    android:textColor="@color/light_grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvNetflix"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/grey"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+
+                <TextView
+                    android:id="@+id/tvErrorNetflix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryNetflix"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_grey"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryNetflix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNetflix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+
+        <!--apple tv-->
+        <LinearLayout
+            android:id="@+id/itemAppleTv"
+            android:orientation="vertical"
+            android:layout_below="@id/itemNetflix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apple_itunes"
+                    android:textColor="@color/light_grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvApple"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/grey"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+
+                <TextView
+                    android:id="@+id/tvErrorApple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryApple"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_grey"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryApple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvApple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <!--disney plus-->
+        <LinearLayout
+            android:id="@+id/itemDisney"
+            android:orientation="vertical"
+            android:layout_below="@id/itemAppleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disney"
+                    android:textColor="@color/light_grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvDisney"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/grey"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/tvErrorDisney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryDisney"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_grey"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryDisney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDisney"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <!--hbo max-->
+        <LinearLayout
+            android:id="@+id/itemHboMax"
+            android:orientation="vertical"
+            android:layout_below="@id/itemDisney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hbo_max"
+                    android:textColor="@color/light_grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvHBO"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/grey"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/tvErrorHBO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryHBO"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_grey"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryHBO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHBO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

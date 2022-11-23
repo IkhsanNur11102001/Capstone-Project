@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.ProfileFragment">
 
@@ -12,6 +12,7 @@
         app:navigationIcon="@drawable/ic_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/grey"/>
+        app:titleTextColor="@color/light_grey"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
 
 </RelativeLayout>

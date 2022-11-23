@@ -35,6 +35,9 @@
         <activity
             android:name=".ui.activity.DetailCollectionActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.providers.MovieProvidersActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

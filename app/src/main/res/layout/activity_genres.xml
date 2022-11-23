@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     tools:context=".ui.activity.GenresActivity">
 
 
@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="@string/genres"
-        app:titleTextColor="@color/grey">
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+        app:titleTextColor="@color/light_grey">
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -34,16 +35,17 @@
         android:layout_centerInParent="true"
         android:text="@string/no_internet_connection_please_try_again"
         android:textAlignment="center"
-        android:textColor="@color/primary_color"
+        android:textColor="@color/light_grey"
         android:textSize="15sp"
         app:drawableTopCompat="@drawable/ic_signal" />
 
     <Button
         android:id="@+id/btnRetry"
+        android:backgroundTint="@color/orange"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:text="@string/retry"
         android:textAllCaps="false"
         android:textColor="@color/light_grey" />

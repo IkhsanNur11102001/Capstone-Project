@@ -6,29 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     tools:context=".ui.search.SearchFragment">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMovie"
-        app:navigationIcon="@drawable/ic_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/grey"
-        app:contentInsetStartWithNavigation="-50dp">
+        android:padding="5dp"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+        app:contentInsetStartWithNavigation="-10dp"
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextColor="@color/black">
 
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchMovie"
-            app:iconifiedByDefault="false"
-            app:searchIcon="@android:color/transparent"
-            android:paddingStart="-40dp"
-            app:queryBackground="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:paddingStart="-40dp"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
             app:queryHint="Search...."
+            app:searchIcon="@android:color/transparent"
             tools:ignore="RtlSymmetry" />
 
     </androidx.appcompat.widget.Toolbar>

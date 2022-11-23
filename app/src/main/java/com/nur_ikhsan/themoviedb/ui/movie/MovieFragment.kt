@@ -48,8 +48,13 @@ class MovieFragment : Fragment() {
         initToolbar()
         initFavorite()
         initTextView()
+        initNetflixMovie()
+        initAppleTv()
+        initDisney()
+        initHBOmax()
 
     }
+
 
     private fun initFavorite() {
             val trailersAdapter = TrailersAdapter{
@@ -91,6 +96,9 @@ class MovieFragment : Fragment() {
             tvTrailers.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_navigation_favorite)
             }
+
+            tvNetflix.setOnClickListener {
+            }
         }
     }
 
@@ -119,6 +127,106 @@ class MovieFragment : Fragment() {
                 binding.itemWatchlist.isVisible = true
             }else{
                 binding.itemWatchlist.isVisible = false
+            }
+        }
+    }
+
+
+    //HBO max
+    private fun initHBOmax() {
+        val adapterMovies = AdapterMovies()
+        viewModel.hboMax.observe(viewLifecycleOwner){ hbo->
+            adapterMovies.submitData(viewLifecycleOwner.lifecycle, hbo)
+        }
+        binding.apply {
+            binding.rvHBO.adapter = adapterMovies
+            binding.rvHBO.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        binding.apply {
+            btnRetryHBO.setOnClickListener {
+                adapterMovies.retry()
+            }
+
+            adapterMovies.addLoadStateListener { loadSate->
+                tvErrorHBO.isVisible = loadSate.source.refresh is LoadState.Error
+                btnRetryHBO.isVisible = loadSate.source.refresh is LoadState.Error
+                rvHBO.isVisible = loadSate.source.refresh is LoadState.NotLoading
+            }
+        }
+    }
+
+
+    //Disney plus
+    private fun initDisney() {
+        val adapterMovies = AdapterMovies()
+        viewModel.disneyMovies.observe(viewLifecycleOwner){ disney->
+            adapterMovies.submitData(viewLifecycleOwner.lifecycle, disney)
+        }
+        binding.apply {
+            binding.rvDisney.adapter = adapterMovies
+            binding.rvDisney.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        binding.apply {
+            btnRetryDisney.setOnClickListener {
+                adapterMovies.retry()
+            }
+
+            adapterMovies.addLoadStateListener { loadSate->
+                tvErrorDisney.isVisible = loadSate.source.refresh is LoadState.Error
+                btnRetryDisney.isVisible = loadSate.source.refresh is LoadState.Error
+                rvDisney.isVisible = loadSate.source.refresh is LoadState.NotLoading
+            }
+        }
+    }
+
+
+    //apple tv
+    private fun initAppleTv() {
+        val adapterMovies = AdapterMovies()
+        viewModel.appleMovies.observe(viewLifecycleOwner){ apple->
+            adapterMovies.submitData(viewLifecycleOwner.lifecycle, apple)
+        }
+        binding.apply {
+            binding.rvApple.adapter = adapterMovies
+            binding.rvApple.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        binding.apply {
+            btnRetryApple.setOnClickListener {
+                adapterMovies.retry()
+            }
+
+            adapterMovies.addLoadStateListener { loadSate->
+                tvErrorApple.isVisible = loadSate.source.refresh is LoadState.Error
+                btnRetryApple.isVisible = loadSate.source.refresh is LoadState.Error
+                rvApple.isVisible = loadSate.source.refresh is LoadState.NotLoading
+            }
+        }
+    }
+
+
+    //netflix movies
+    private fun initNetflixMovie() {
+        val adapterMovies = AdapterMovies()
+        viewModel.netflixMovie.observe(viewLifecycleOwner){ netflix->
+            adapterMovies.submitData(viewLifecycleOwner.lifecycle, netflix)
+        }
+        binding.apply {
+            binding.rvNetflix.adapter = adapterMovies
+            binding.rvNetflix.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
+
+        binding.apply {
+            btnRetryNetflix.setOnClickListener {
+                adapterMovies.retry()
+            }
+
+            adapterMovies.addLoadStateListener { loadSate->
+                tvErrorNetflix.isVisible = loadSate.source.refresh is LoadState.Error
+                btnRetryNetflix.isVisible = loadSate.source.refresh is LoadState.Error
+                rvNetflix.isVisible = loadSate.source.refresh is LoadState.NotLoading
             }
         }
     }

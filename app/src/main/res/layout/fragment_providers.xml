@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".ui.favorite.DashboardFragment">
+    tools:context=".ui.providers.ProvidersFragment">
 
     <LinearLayout
-        android:id="@+id/tvFavorite"
+        android:id="@+id/itemProviders"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/favorite"
+            android:text="@string/providers"
             android:textColor="@color/light_grey"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@string/trailers"
+            android:text="@string/movie"
             android:textAllCaps="true"
             android:textColor="@color/grey"
             android:textSize="12sp"
@@ -37,12 +37,11 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFavorite"
+        android:id="@+id/rvProviders"
+        android:layout_below="@+id/itemProviders"
+        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvFavorite"
-        android:layout_centerHorizontal="true"
-        android:padding="5dp" />
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

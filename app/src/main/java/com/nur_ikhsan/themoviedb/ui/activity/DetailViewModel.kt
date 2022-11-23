@@ -21,4 +21,5 @@ class DetailViewModel
     fun getPartsOfCollection(collectionId: String) = repositoryMovies.getPartsOfCollection(collectionId = collectionId)
 
 
+
 }

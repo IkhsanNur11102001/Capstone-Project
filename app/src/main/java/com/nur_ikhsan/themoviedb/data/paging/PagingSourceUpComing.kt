@@ -10,12 +10,13 @@ class PagingSourceUpComing(private val apiInterface: ApiInterface) : PagingSourc
     companion object{
         const val FIRST_PAGE = 1
         const val UP_COMING = "upcoming"
+        const val REGION = "US"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key ?: FIRST_PAGE
-            val response = apiInterface.getAllMovies(UP_COMING, page)
+            val response = apiInterface.getAllMovies(UP_COMING, page, REGION)
             val dataMovies = response.body()?.results
 
             LoadResult.Page(

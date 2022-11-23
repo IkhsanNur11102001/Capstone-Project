@@ -26,8 +26,17 @@
     <string name="production_countries">Production Country</string>
     <string name="budget">Budget</string>
     <string name="revenue">Revenue</string>
-    <string name="production_companies">Production Company</string>
+    <string name="production_companies">Companies</string>
     <string name="countries">Countries</string>
     <string name="favorite">Favorite</string>
     <string name="trailers_name">Trailers Name</string>
+    <string name="share">Share</string>
+    <string name="original_title">Original Title</string>
+    <string name="home_page">Homepage</string>
+    <string name="providers">Providers</string>
+    <string name="netflix">Netflix</string>
+    <string name="apple_itunes">Apple iTunes</string>
+    <string name="disney">Disney+</string>
+    <string name="best_collection_movies">Best Collections\nMovie</string>
+    <string name="hbo_max">HBO max</string>
 </resources>

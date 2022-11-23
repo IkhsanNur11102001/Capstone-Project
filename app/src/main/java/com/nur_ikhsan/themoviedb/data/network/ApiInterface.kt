@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface ApiInterface {
 
     @GET("movie/{category}?api_key=$API_KEY")
-    suspend fun getAllMovies(@Path("category") category : String, @Query("page") page : Int) : Response<ResponseMovies>
+    suspend fun getAllMovies(@Path("category") category : String, @Query("page") page : Int, @Query("region") region: String) : Response<ResponseMovies>
 
     @GET("genre/movie/list?api_key=$API_KEY")
     fun getGenresMovies() : Call<ResponseGenres>
@@ -23,12 +23,31 @@ interface ApiInterface {
     fun getDetailsMovie(@Path("movie_id") movieId : String) : Call<ResponseDetailMovie>
 
     @GET("discover/movie?api_key=$API_KEY")
-    suspend fun getMovieByGenres(@Query("with_genres") genresId : String, @Query("page") page : Int) : Response<ResponseMovies>
+    suspend fun getMovieByGenres(@Query("with_genres") genresId : String, @Query("page") page : Int,
+                                 @Query("region") region: String,
+                                 @Query("primary_release_year") year : Int) : Response<ResponseMovies>
 
     @GET("search/movie?api_key=$API_KEY")
-    suspend fun searchMovie(@Query("query") query : String, @Query("page") page : Int) : Response<ResponseMovies>
+    suspend fun searchMovie(@Query("query") query : String, @Query("page") page : Int, @Query("region") region: String) : Response<ResponseMovies>
 
     @GET("movie/{movie_id}/videos?api_key=$API_KEY")
     suspend fun getTrailers(@Path("movie_id") movieId : String) : ResponseTrailers
+
+    @GET("watch/providers/movie?api_key=$API_KEY")
+    fun getProviders(@Query("watch_region") region : String) : Call<ResponseProviders>
+
+    @GET("discover/movie?api_key=$API_KEY")
+    suspend fun getMovieByProviders(@Query("with_watch_providers") providers : String,
+                                    @Query("watch_region") region: String,
+                                    @Query("page") page : Int,
+                                    @Query("primary_release_year") year : Int) : Response<ResponseMovies>
+
+
+    @GET("discover/movie?api_key=$API_KEY")
+    suspend fun getMovieWithProviders(@Query("with_watch_providers") providers : String,
+                                      @Query("watch_region") region: String,
+                                      @Query("page") page : Int,
+                                      @Query("primary_release_year") year : Int) : Response<ResponseMovies>
+
 
 }

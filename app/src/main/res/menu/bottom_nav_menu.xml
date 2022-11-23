@@ -12,6 +12,11 @@
         android:title="@string/genres" />
 
     <item
+        android:id="@+id/navigation_providers"
+        android:icon="@drawable/ic_providers"
+        android:title="@string/providers" />
+
+    <item
         android:id="@+id/navigation_favorite"
         android:icon="@drawable/ic_favorite"
         android:title="@string/title_dashboard" />

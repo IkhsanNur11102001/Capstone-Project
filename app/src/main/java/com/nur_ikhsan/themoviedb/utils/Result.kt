@@ -1,4 +1,4 @@
-package com.nur_ikhsan.themoviedb.data.repository
+package com.nur_ikhsan.themoviedb.utils
 
 sealed class Result<out R> private constructor(){
     data class Success<out T>(val data: T) : Result<T>()

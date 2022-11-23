@@ -9,12 +9,13 @@ class PagingSourceResultMovie(private val apiInterface: ApiInterface, private va
 
     companion object{
         const val FIRST_PAGE = 1
+        const val REGION = "US"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key ?: FIRST_PAGE
-            val response = apiInterface.searchMovie(query, page)
+            val response = apiInterface.searchMovie(query, page, REGION)
             val dataMovies = response.body()?.results
 
             LoadResult.Page(

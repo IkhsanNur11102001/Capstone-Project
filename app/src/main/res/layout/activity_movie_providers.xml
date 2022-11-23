@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,48 +5,46 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_color"
-    tools:context=".ui.movie.PopularFragment">
+    tools:context=".ui.providers.MovieProvidersActivity">
 
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMovie"
-        app:title="@string/popular"
-        app:titleTextColor="@color/light_grey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/ic_back"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+        app:title="@string/providers"
+        app:titleMarginEnd="20dp"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+        app:titleTextColor="@color/light_grey"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProviders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarMovie"
+        android:padding="5dp" />
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/btnRetry"
         android:layout_centerInParent="true"
-        android:layout_above="@id/btn_retry"
-        android:textColor="@color/light_grey"
-        android:textAlignment="center"
         android:text="@string/no_internet_connection_please_try_again"
+        android:textAlignment="center"
+        android:textColor="@color/light_grey"
         android:textSize="15sp"
         app:drawableTopCompat="@drawable/ic_signal" />
 
     <Button
-        android:id="@+id/btn_retry"
-        android:layout_marginTop="10dp"
+        android:id="@+id/btnRetry"
         android:backgroundTint="@color/orange"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:text="@string/retry"
         android:textAllCaps="false"
         android:textColor="@color/light_grey" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPopular"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbarMovie"
-        android:padding="5dp" />
 
 </RelativeLayout>

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.nur_ikhsan.themoviedb.data.repository.RepositoryMovies
+import com.nur_ikhsan.themoviedb.data.response.BelongsToCollection
 import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -25,5 +26,17 @@ class MovieViewModel @Inject constructor(private val repositoryMovies: Repositor
 
     val nowPlaying : LiveData<PagingData<ResultMovie>> =
         repositoryMovies.getNowPlayingMovies().cachedIn(viewModelScope)
+
+    val netflixMovie : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getNetflixMovies().cachedIn(viewModelScope)
+
+    val appleMovies : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getAppleMovies().cachedIn(viewModelScope)
+
+    val disneyMovies : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getDisneyMovies().cachedIn(viewModelScope)
+
+    val hboMax : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getHboMax().cachedIn(viewModelScope)
 
 }

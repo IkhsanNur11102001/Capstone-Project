@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     tools:context=".ui.activity.DetailCollectionActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,15 +16,16 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            app:contentScrim="@color/light_grey"
+            app:contentScrim="@color/primary_color"
+            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:expandedTitleTextColor="@color/white"
-            app:collapsedTitleTextColor="@color/grey">
+            app:expandedTitleTextColor="@color/light_grey"
+            app:collapsedTitleTextColor="@color/light_grey">
 
             <ImageView
                 android:id="@+id/imageCollection"
                 android:scaleType="fitXY"
-                android:background="@color/grey"
+                android:background="@color/secondary_color"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_collapseMode="parallax"/>
@@ -33,7 +34,8 @@
                 android:id="@+id/toolbarMovie"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                app:popupTheme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

@@ -34,6 +34,7 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_favorite"
             app:destination="@id/navigation_favorite" />
+
     </fragment>
 
     <fragment
@@ -83,4 +84,10 @@
         android:name="com.nur_ikhsan.themoviedb.ui.movie.NowPlayingFragment"
         android:label="fragment_now_playing"
         tools:layout="@layout/fragment_now_playing" />
+    <fragment
+        android:id="@+id/navigation_providers"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.ProvidersFragment"
+        android:label="fragment_providers"
+        tools:layout="@layout/fragment_providers"/>
+
 </navigation>

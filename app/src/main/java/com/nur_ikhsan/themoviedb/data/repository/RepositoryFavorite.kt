@@ -6,6 +6,7 @@ import androidx.lifecycle.map
 import com.nur_ikhsan.themoviedb.data.local.TrailersDao
 import com.nur_ikhsan.themoviedb.data.local.TrailersFavorite
 import com.nur_ikhsan.themoviedb.data.network.ApiInterface
+import com.nur_ikhsan.themoviedb.utils.Result
 import javax.inject.Inject
 import javax.inject.Singleton
 

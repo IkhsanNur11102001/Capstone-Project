@@ -1,62 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/primary_color"
     tools:context=".ui.activity.DetailMovieActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMovie"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_above="@id/toolbarBottomDetail"
+        android:background="@color/primary_color"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitleMovie"
-            android:layout_width="200dp"
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:textColor="@color/grey"
-            android:textSize="20sp"/>
+            android:fitsSystemWindows="true"
+            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+            app:elevation="0dp">
 
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleTextColor="@color/light_grey"
+                app:expandedTitleTextColor="@android:color/transparent"
+                app:contentScrim="@color/primary_color"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/imageBackdropPath"
+                    app:layout_collapseMode="parallax"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"/>
+
+
+                <RelativeLayout
+                    app:layout_collapseMode="parallax"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <FrameLayout
+                        android:id="@+id/frame_Image"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_image"
+                            android:layout_width="105dp"
+                            android:layout_height="140dp"/>
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_no_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                        <ImageView
+                            android:id="@+id/imageMovie"
+                            android:scaleType="fitXY"
+                            android:layout_width="105dp"
+                            android:layout_height="140dp"/>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@id/frame_Image"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvTitleMovie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:padding="5dp"
+                            android:singleLine="true"
+                            android:textColor="@color/light_grey"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvVoteAverage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:textColor="@color/grey"
+                            android:padding="5dp"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:drawableStartCompat="@drawable/ic_star" />
+
+
+                        <TextView
+                            android:id="@+id/tvReleaseDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:padding="5dp"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/grey"
+                            app:drawableStartCompat="@drawable/ic_date" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarMovie"
+                    app:layout_collapseMode="pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    app:titleMarginEnd="20dp"
+                    app:popupTheme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayoutDetail"
+                app:tabMode="scrollable"
+                android:layout_marginTop="5dp"
+                app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+                app:tabTextColor="@color/orange"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="3dp"
+                app:tabIndicatorColor="@color/orange"
+                app:tabRippleColor="@color/light_grey"
+                app:tabSelectedTextColor="@color/orange"
+                android:background="@color/primary_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBottomDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/secondary_color"
+        android:theme="@android:style/ThemeOverlay.Material.Light"
+        app:menu="@menu/btn_share">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHomePage"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/orange"
+                android:padding="10dp"
+                android:text="@string/home_page"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/btnOpenWith"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/ic_open_with" />
+
+        </LinearLayout>
 
         <ToggleButton
             android:id="@+id/btnWatchlist"
-            android:textOn=""
-            android:textOff=""
+            android:layout_marginTop="2dp"
             android:layout_gravity="end"
-            android:background="@drawable/item_watchlist"
-            android:layout_marginEnd="10sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
             android:layout_width="30dp"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:background="@drawable/item_watchlist"
+            android:textOff=""
+            android:textOn="" />
 
     </androidx.appcompat.widget.Toolbar>
 
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutDetail"
-        app:tabMode="scrollable"
-        android:layout_marginTop="5dp"
-        app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-        app:tabTextColor="@color/primary_color"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="3dp"
-        app:tabIndicatorColor="@color/primary_color"
-        app:tabRippleColor="@color/primary_color"
-        app:tabSelectedTextColor="@color/primary_color"
-        android:background="@color/light_grey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerDetail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+</RelativeLayout>
