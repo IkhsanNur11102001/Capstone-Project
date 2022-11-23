@@ -37,8 +37,11 @@ interface ApiInterface {
     @GET("movie/{movie_id}/videos?api_key=$API_KEY")
     suspend fun getTrailers(@Path("movie_id") movieId : String) : ResponseTrailers
 
+
+
     @GET("watch/providers/movie?api_key=$API_KEY")
     fun getProviders(@Query("watch_region") region : String) : Call<ResponseProviders>
+
 
     @GET("discover/movie?api_key=$API_KEY")
     suspend fun getMovieByProviders(@Query("with_watch_providers") providers : String,
@@ -47,11 +50,16 @@ interface ApiInterface {
                                     @Query("primary_release_year") year : Int) : Response<ResponseMovies>
 
 
+
     @GET("discover/movie?api_key=$API_KEY")
     suspend fun getMovieWithProviders(@Query("with_watch_providers") providers : String,
                                       @Query("watch_region") region: String,
                                       @Query("page") page : Int,
                                       @Query("primary_release_year") year : Int) : Response<ResponseMovies>
+
+
+    @GET("movie/{movie_id}/watch/providers?api_key=$API_KEY")
+    fun getProvidersMovieDetail(@Path("movie_id") movieId: String) : Call<ResponseProvidersDetailMovies>
 
 
 }

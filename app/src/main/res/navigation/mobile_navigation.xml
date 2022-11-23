@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_favorite"
             app:destination="@id/navigation_favorite" />
+        <action
+            android:id="@+id/action_navigation_home_to_netflixFragment"
+            app:destination="@id/netflixFragment" />
 
     </fragment>
 
@@ -89,5 +92,10 @@
         android:name="com.nur_ikhsan.themoviedb.ui.providers.ProvidersFragment"
         android:label="fragment_providers"
         tools:layout="@layout/fragment_providers"/>
+    <fragment
+        android:id="@+id/netflixFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.NetflixFragment"
+        android:label="fragment_netflix"
+        tools:layout="@layout/fragment_netflix" />
 
 </navigation>

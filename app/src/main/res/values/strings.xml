@@ -30,7 +30,7 @@
     <string name="countries">Countries</string>
     <string name="favorite">Favorite</string>
     <string name="trailers_name">Trailers Name</string>
-    <string name="share">Share</string>
+    <string name="share">Share with</string>
     <string name="original_title">Original Title</string>
     <string name="home_page">Homepage</string>
     <string name="providers">Providers</string>
@@ -40,4 +40,8 @@
     <string name="best_collection_movies">Best Collections\nMovie</string>
     <string name="hbo_max">HBO max</string>
     <string name="keyword">Keyword</string>
+    <string name="view_collection">View Collection</string>
+    <string name="just_watch">Just Watch</string>
+    <string name="tmdb_movie">TMDB Movie</string>
+    <string name="wikipedia">Wikipedia</string>
 </resources>

@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.nur_ikhsan.themoviedb.BuildConfig
+import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.utils.Result
 import com.nur_ikhsan.themoviedb.databinding.FragmentAboutBinding
@@ -87,22 +87,23 @@ class AboutFragment : Fragment() {
     private fun initCollection(movieId: String) {
         viewModel.movieCollection(movieId).observe(viewLifecycleOwner){ collection->
             if (collection != null){
-                binding.apply {
-                    Glide.with(context?.applicationContext!!)
-                        .load(Uri.parse(BuildConfig.URL_IMAGE + collection.backdropPath))
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .error(R.drawable.bg_image)
-                        .transition(DrawableTransitionOptions.withCrossFade(100))
-                        .transform(RoundedCorners(30))
-                        .into(imageCollection)
-                    tvCollection.text = collection.name
+                    binding.apply {
+                        Glide.with(context?.applicationContext!!)
+                            .load(Uri.parse("$URL_IMAGE${collection.backdropPath}"))
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .error(R.drawable.bg_image)
+                            .transition(DrawableTransitionOptions.withCrossFade(100))
+                            .transform(RoundedCorners(30))
+                            .into(imageCollection)
+                        tvCollection.text = collection.name
 
-                    imageCollection.setOnClickListener {
-                        val intent = Intent(context, DetailCollectionActivity::class.java)
-                        intent.putExtra(DetailCollectionActivity.COLLECTION_ID, collection.id)
-                        startActivity(intent)
-                    }
+                        tvViewCollection.setOnClickListener {
+                            val intent = Intent(context, DetailCollectionActivity::class.java)
+                            intent.putExtra(DetailCollectionActivity.COLLECTION_ID, collection.id)
+                            startActivity(intent)
+                        }
                 }
+
             }else{
                 binding.itemCollection.isVisible = false
             }

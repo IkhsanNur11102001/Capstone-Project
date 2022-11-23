@@ -229,6 +229,20 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+
+            <TextView
+                android:id="@+id/tvViewCollection"
+                android:text="@string/view_collection"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_collection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
         </RelativeLayout>
 
 
@@ -247,7 +261,8 @@
             android:id="@+id/rvTrailers"
             android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
 
     </LinearLayout>
 

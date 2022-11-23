@@ -178,24 +178,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <ImageView
                 android:id="@+id/btnHomePage"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/orange"
-                android:padding="10dp"
-                android:text="@string/home_page"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="1dp"
+                android:backgroundTint="@color/light_grey"
+                android:background="@drawable/ic_open_with"/>
 
             <ImageView
-                android:id="@+id/btnOpenWith"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
+                android:id="@+id/btnProviders"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/ic_open_with" />
+                android:background="@drawable/ic_providers"
+                android:backgroundTint="@color/light_grey"/>
 
         </LinearLayout>
 

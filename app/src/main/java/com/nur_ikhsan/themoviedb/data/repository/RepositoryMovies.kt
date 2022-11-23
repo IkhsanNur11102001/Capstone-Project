@@ -124,6 +124,26 @@ constructor(private val apiInterface: ApiInterface) {
     ).liveData
 
 
+    fun getProviderMovieDetail(movieId: String) : LiveData<ProvidersUS>{
+        val resultProviders = MutableLiveData<ProvidersUS>()
+        val response = apiInterface.getProvidersMovieDetail(movieId)
+        response.enqueue(object : Callback<ResponseProvidersDetailMovies>{
+            override fun onResponse(
+                call: Call<ResponseProvidersDetailMovies>,
+                response: Response<ResponseProvidersDetailMovies>
+            ) {
+                if (response.isSuccessful){
+                    resultProviders.value = response.body()?.results
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseProvidersDetailMovies>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return resultProviders
+    }
+
     fun getDetailCollection(collectionId : String) : LiveData<BelongsToCollection>{
         val resultCollection = MutableLiveData<BelongsToCollection>()
         val response = apiInterface.getDetailCollection(collectionId = collectionId)

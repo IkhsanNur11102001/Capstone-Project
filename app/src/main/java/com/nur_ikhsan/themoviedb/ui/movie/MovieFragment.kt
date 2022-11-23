@@ -98,6 +98,7 @@ class MovieFragment : Fragment() {
             }
 
             tvNetflix.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_home_to_netflixFragment)
             }
         }
     }
