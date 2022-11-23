@@ -28,7 +28,11 @@ interface ApiInterface {
                                  @Query("primary_release_year") year : Int) : Response<ResponseMovies>
 
     @GET("search/movie?api_key=$API_KEY")
-    suspend fun searchMovie(@Query("query") query : String, @Query("page") page : Int, @Query("region") region: String) : Response<ResponseMovies>
+    suspend fun searchMovie(@Query("query") query : String, @Query("page") page : Int,
+                            @Query("region") region: String) : Response<ResponseMovies>
+
+    @GET("search/keyword?api_key=$API_KEY")
+    suspend fun searchKeyword(@Query("query") query : String, @Query("page") page : Int) : Response<ResponseKeyword>
 
     @GET("movie/{movie_id}/videos?api_key=$API_KEY")
     suspend fun getTrailers(@Path("movie_id") movieId : String) : ResponseTrailers

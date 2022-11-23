@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.nur_ikhsan.themoviedb.data.repository.RepositoryMovies
+import com.nur_ikhsan.themoviedb.data.response.ResultKeyword
 import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -16,5 +17,8 @@ class SearchViewModel @Inject constructor(private val repositoryMovies: Reposito
 
     fun getResultMovies(query : String) : LiveData<PagingData<ResultMovie>> =
         repositoryMovies.getResultMovies(query = query).cachedIn(viewModelScope)
+
+    fun getResultKeyword(query: String) : LiveData<PagingData<ResultKeyword>> =
+        repositoryMovies.getResultKeyword(query = query)
 
 }

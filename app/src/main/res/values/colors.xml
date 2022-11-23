@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color">#131820</color>
-    <color name="secondary_color">#1F2735</color>
-    <color name="third_color">#161C27</color>
+    <color name="primary_color">#19212A</color>
+    <color name="secondary_color">#212B37</color>
     <color name="orange">#FF5900</color>
     <color name="yellow">#FFFA09</color>
     <color name="light_grey">#DFDFDF</color>

@@ -72,6 +72,14 @@ constructor(private val apiInterface: ApiInterface) {
         ), pagingSourceFactory = {PagingSourceResultMovie(apiInterface, query = query)}
         ).liveData
 
+    fun getResultKeyword(query : String) =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+            enablePlaceholders = false
+        ), pagingSourceFactory = {PagingSourceResultKeyword(apiInterface, query = query)}
+        ).liveData
+
     fun getMovieByProviders(providersId : String) =
         Pager( config = PagingConfig(
             pageSize = 5,
