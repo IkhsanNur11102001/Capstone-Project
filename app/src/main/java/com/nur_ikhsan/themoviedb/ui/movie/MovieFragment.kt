@@ -96,9 +96,17 @@ class MovieFragment : Fragment() {
             tvTrailers.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_navigation_favorite)
             }
-
             tvNetflix.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_netflixFragment)
+            }
+            tvApple.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_home_to_appleFragment)
+            }
+            tvDisney.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_home_to_disneyFragment)
+            }
+            tvHBO.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_home_to_HBOFragment)
             }
         }
     }

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -22,6 +23,7 @@ import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.ActivityDetailMovieBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.PagerAdapter
+import com.nur_ikhsan.themoviedb.ui.movie.adapter.ReviewsAdapter
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterBuy
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterRent
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterStream
@@ -44,15 +46,18 @@ class DetailMovieActivity : AppCompatActivity() {
     private val detailViewModel by viewModels<DetailViewModel>()
 
     //bottom sheet
-    private lateinit var bottomSheet : BottomSheetDialog
+    private lateinit var bottomSheetProviders : BottomSheetDialog
+    private lateinit var bottomSheetReviews : BottomSheetDialog
 
     //recycler view
     private lateinit var rvStream : RecyclerView
     private lateinit var rvBuy : RecyclerView
     private lateinit var rvRent : RecyclerView
+    private lateinit var rvReviews : RecyclerView
 
     //imageView
     private lateinit var imageBack : ImageView
+    private lateinit var imageTMDB : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,28 +75,60 @@ class DetailMovieActivity : AppCompatActivity() {
                 initViewModel(movieId)
 
                 binding.btnProviders.setOnClickListener {
-                    detailViewModel.getProvidersMovie(movieId).observe(this){ providers->
-                        if (providers?.uS != null){
-                            initBottomSheeT(movieId)
+                    initBottomSheetProviders(movieId)
+                }
+
+                        binding.btnReviews.setOnClickListener {
+                            detailViewModel.getReviewsMovie(movieId).observe(this){
+                                if (it.isNotEmpty()){
+                                    initBottomSheetReviews(movieId)
                         }else{
-                            Toast.makeText(this, "Watch providers for $titleMovie is not available",
-                                Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "No reviews for $titleMovie", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
         }
-
         initPagerAdapter()
     }
 
-    @SuppressLint("InflateParams")
-    private fun initBottomSheeT(movieId: String) {
 
-        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_item, null)
-        bottomSheet = BottomSheetDialog(this)
-        bottomSheet.setContentView(dialogView)
-        bottomSheet.show()
+    //Reviews
+    @SuppressLint("InflateParams")
+    private fun initBottomSheetReviews(movieId: String) {
+        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_reviews, null)
+        bottomSheetReviews = BottomSheetDialog(this)
+        bottomSheetReviews.setContentView(dialogView)
+        bottomSheetReviews.show()
+
+        //recycler view
+        rvReviews = dialogView.findViewById(R.id.rvReviews)
+
+        //image
+        imageBack = dialogView.findViewById(R.id.btnBack)
+
+        imageBack.setOnClickListener {
+            bottomSheetReviews.hide()
+        }
+
+        detailViewModel.getReviewsMovie(movie_id = movieId).observe(this){ reviews->
+            if (reviews != null){
+                val reviewsAdapter = ReviewsAdapter()
+                reviewsAdapter.submitList(reviews)
+                rvReviews.adapter = reviewsAdapter
+                rvReviews.layoutManager = LinearLayoutManager(this)
+            }
+        }
+    }
+
+    //Providers
+    @SuppressLint("InflateParams")
+    private fun initBottomSheetProviders(movieId: String) {
+
+        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_providers, null)
+        bottomSheetProviders = BottomSheetDialog(this)
+        bottomSheetProviders.setContentView(dialogView)
+        bottomSheetProviders.show()
 
         //recycler view
         rvStream = dialogView.findViewById(R.id.rvStream)
@@ -100,9 +137,24 @@ class DetailMovieActivity : AppCompatActivity() {
 
         //image View
         imageBack = dialogView.findViewById(R.id.btnBack)
+        imageTMDB = dialogView.findViewById(R.id.imageTMDB)
+
+        Glide.with(this)
+            .load(R.drawable.img_tmdb)
+            .transform(RoundedCorners(30))
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(imageTMDB)
+
+        imageTMDB.setOnClickListener {
+            Intent(Intent.ACTION_VIEW).also { intent ->
+                intent.data = Uri.parse("https://www.themoviedb.org/movie/$movieId/watch?locale=US")
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
+            }
+        }
 
         imageBack.setOnClickListener {
-            bottomSheet.hide()
+            bottomSheetProviders.hide()
         }
 
         //stream
@@ -249,6 +301,8 @@ class DetailMovieActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayoutDetail, binding.viewPagerDetail){ tab, position->
             when(position){
                 0-> tab.text = "About"
+                1-> tab.text = "Cast"
+                2-> tab.text = "Crew"
             }
         }.attach()
     }

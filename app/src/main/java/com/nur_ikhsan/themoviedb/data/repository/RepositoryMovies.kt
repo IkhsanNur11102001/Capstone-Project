@@ -124,6 +124,90 @@ constructor(private val apiInterface: ApiInterface) {
     ).liveData
 
 
+    fun getReviews(movieId: String) : LiveData<List<ReviewsItem>>{
+        val reviews = MutableLiveData<List<ReviewsItem>>()
+        val response = apiInterface.getReviews(movieId = movieId)
+        response.enqueue(object : Callback<ResponseReviews>{
+            override fun onResponse(
+                call: Call<ResponseReviews>,
+                response: Response<ResponseReviews>
+            ) {
+                if (response.isSuccessful){
+                    reviews.value = response.body()?.results
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseReviews>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return reviews
+    }
+
+
+    fun getCastMovie(movieId: String) : LiveData<List<CastItem>>{
+        val cast = MutableLiveData<List<CastItem>>()
+        val response = apiInterface.getCreditsMovie(movieId)
+        response.enqueue(object : Callback<ResponseCreditsMovie>{
+            override fun onResponse(
+                call: Call<ResponseCreditsMovie>,
+                response: Response<ResponseCreditsMovie>
+            ) {
+                if (response.isSuccessful){
+                    cast.value = response.body()?.cast
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseCreditsMovie>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return cast
+    }
+
+
+    fun getCrewMovie(movieId: String) : LiveData<List<CrewItem>>{
+        val crew = MutableLiveData<List<CrewItem>>()
+        val response = apiInterface.getCreditsMovie(movieId)
+        response.enqueue(object : Callback<ResponseCreditsMovie>{
+            override fun onResponse(
+                call: Call<ResponseCreditsMovie>,
+                response: Response<ResponseCreditsMovie>
+            ) {
+                if (response.isSuccessful){
+                    crew.value = response.body()?.crew
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseCreditsMovie>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return crew
+    }
+
+
+    fun getReleaseMovie(movieId: String) : LiveData<List<ReleaseItem>>{
+        val release = MutableLiveData<List<ReleaseItem>>()
+        val response = apiInterface.getReleaseMovie(movieId = movieId, REGION)
+        response.enqueue(object : Callback<ResponseReleaseMovie>{
+            override fun onResponse(
+                call: Call<ResponseReleaseMovie>,
+                response: Response<ResponseReleaseMovie>
+            ) {
+                if (response.isSuccessful){
+                    release.value = response.body()?.results
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseReleaseMovie>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return release
+    }
+
+
     fun getProviderMovieDetail(movieId: String) : LiveData<ProvidersUS>{
         val resultProviders = MutableLiveData<ProvidersUS>()
         val response = apiInterface.getProvidersMovieDetail(movieId)

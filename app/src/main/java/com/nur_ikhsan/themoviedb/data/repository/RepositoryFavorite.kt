@@ -46,12 +46,4 @@ class RepositoryFavorite @Inject constructor(private val apiInterface: ApiInterf
         trailersFavorite.isBookmarked = bookmarkState
         trailersDao.updateTrailers(trailersFavorite)
     }
-
-    companion object{
-        private var instance : RepositoryFavorite? = null
-        fun getInstance(apiInterface : ApiInterface, trailersDao: TrailersDao) :
-                RepositoryFavorite = instance ?: synchronized(this){
-                    instance ?: RepositoryFavorite(apiInterface, trailersDao)
-        }.also {  instance = it}
-    }
 }

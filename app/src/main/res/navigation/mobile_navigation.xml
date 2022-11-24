@@ -37,6 +37,15 @@
         <action
             android:id="@+id/action_navigation_home_to_netflixFragment"
             app:destination="@id/netflixFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_appleFragment"
+            app:destination="@id/appleFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_disneyFragment"
+            app:destination="@id/disneyFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_HBOFragment"
+            app:destination="@id/HBOFragment" />
 
     </fragment>
 
@@ -97,5 +106,20 @@
         android:name="com.nur_ikhsan.themoviedb.ui.providers.NetflixFragment"
         android:label="fragment_netflix"
         tools:layout="@layout/fragment_netflix" />
+    <fragment
+        android:id="@+id/appleFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.AppleFragment"
+        android:label="fragment_apple"
+        tools:layout="@layout/fragment_apple" />
+    <fragment
+        android:id="@+id/disneyFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.DisneyFragment"
+        android:label="fragment_disney"
+        tools:layout="@layout/fragment_disney" />
+    <fragment
+        android:id="@+id/HBOFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.HBOFragment"
+        android:label="fragment_h_b_o"
+        tools:layout="@layout/fragment_h_b_o" />
 
 </navigation>

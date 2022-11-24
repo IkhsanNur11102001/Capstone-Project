@@ -24,6 +24,7 @@ import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
 import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteViewModel
 import com.nur_ikhsan.themoviedb.ui.genres.adapter.GenresDetailAdapter
+import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterReleaseMovie
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.TrailersAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
@@ -54,6 +55,19 @@ class AboutFragment : Fragment() {
                 initGenresMovie(movieId)
                 initCollection(movieId)
                 initTrailers(movieId)
+                initReleaseMovie(movieId)
+            }
+        }
+    }
+
+    private fun initReleaseMovie(movieId: String) {
+        viewModel.getReleaseItem(movieId).observe(viewLifecycleOwner){ release->
+            if (release != null){
+                val adapterReleaseMovie = AdapterReleaseMovie(release)
+                binding.rvCertificate.adapter = adapterReleaseMovie
+                binding.rvCertificate.layoutManager = LinearLayoutManager(context,
+                    LinearLayoutManager.HORIZONTAL, false)
+
             }
         }
     }
@@ -61,11 +75,11 @@ class AboutFragment : Fragment() {
     private fun initTrailers(movieId: String) {
 
             val trailersAdapter = TrailersAdapter {
-                if (it.isBookmarked) {
-                    favoriteViewModel.deleteFavorite(it)
-                } else {
-                    favoriteViewModel.saveFavorite(it)
-                }
+               if (it.isBookmarked){
+                   favoriteViewModel.deleteFavorite(it)
+               }else{
+                   favoriteViewModel.saveFavorite(it)
+               }
             }
 
                 favoriteViewModel.getTrailers(movieId = movieId).observe(viewLifecycleOwner) { trailers ->

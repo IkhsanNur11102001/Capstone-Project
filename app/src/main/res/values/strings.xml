@@ -44,4 +44,9 @@
     <string name="just_watch">Just Watch</string>
     <string name="tmdb_movie">TMDB Movie</string>
     <string name="wikipedia">Wikipedia</string>
+    <string name="certification">Certification</string>
+    <string name="credits_name">Credits Name</string>
+    <string name="job_or_character">Job or character</string>
+    <string name="name">Name</string>
+    <string name="update">Update</string>
 </resources>

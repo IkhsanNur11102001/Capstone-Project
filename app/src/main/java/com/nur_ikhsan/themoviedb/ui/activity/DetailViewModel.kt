@@ -22,6 +22,14 @@ class DetailViewModel
 
     fun getProvidersMovie(movie_id: String) = repositoryMovies.getProviderMovieDetail(movieId = movie_id)
 
+    fun getReleaseItem(movie_id: String) = repositoryMovies.getReleaseMovie(movieId = movie_id)
+
+    fun getCastMovie(movie_id: String) = repositoryMovies.getCastMovie(movieId = movie_id)
+
+    fun getCrewMovie(movie_id: String) = repositoryMovies.getCrewMovie(movieId = movie_id)
+
+    fun getReviewsMovie(movie_id: String) = repositoryMovies.getReviews(movieId = movie_id)
+
 
 
 }

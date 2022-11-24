@@ -71,18 +71,12 @@ class TrailersAdapter(private val onBookmark : (TrailersFavorite) -> Unit)
 
         val DIFF_CALLBACK : DiffUtil.ItemCallback<TrailersFavorite> =
             object : DiffUtil.ItemCallback<TrailersFavorite>(){
-                override fun areItemsTheSame(
-                    oldItem: TrailersFavorite,
-                    newItem: TrailersFavorite
-                ): Boolean {
-                    return oldItem.name == newItem.name
+                override fun areItemsTheSame(oldItem: TrailersFavorite, newItem: TrailersFavorite): Boolean {
+                    return oldItem.id == newItem.id
                 }
 
                 @SuppressLint("DiffUtilEquals")
-                override fun areContentsTheSame(
-                    oldItem: TrailersFavorite,
-                    newItem: TrailersFavorite
-                ): Boolean {
+                override fun areContentsTheSame(oldItem: TrailersFavorite, newItem: TrailersFavorite): Boolean {
                     return oldItem == newItem
                 }
 
