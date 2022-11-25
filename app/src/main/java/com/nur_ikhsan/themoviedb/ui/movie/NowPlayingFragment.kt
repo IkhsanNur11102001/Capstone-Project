@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentNowPlayingBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,10 +48,8 @@ class NowPlayingFragment : Fragment() {
         }
 
         binding.apply {
-            rvNowPlaying.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                header = MovieLoadStateAdapter{ adapterMovies.retry()},
-                footer = MovieLoadStateAdapter{ adapterMovies.retry()}
-            )
+            rvNowPlaying.adapter = adapterMovies
+
           if (context?.applicationContext!!.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
               rvNowPlaying.layoutManager = GridLayoutManager(context, 3)
           }else{
@@ -69,6 +66,14 @@ class NowPlayingFragment : Fragment() {
                 tvError.isVisible = loadSate.source.refresh is LoadState.Error
                 btnRetry.isVisible = loadSate.source.refresh is LoadState.Error
                 rvNowPlaying.isVisible = loadSate.source.refresh is LoadState.NotLoading
+
+                if (loadSate.source.refresh is LoadState.NotLoading &&
+                    loadSate.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                    rvNowPlaying.isVisible = false
+                    tvError.isVisible = true
+                }else{
+                    tvError.isVisible = false
+                }
             }
         }
     }

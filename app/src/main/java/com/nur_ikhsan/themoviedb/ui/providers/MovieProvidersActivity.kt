@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.ActivityMovieProvidersBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,10 +44,7 @@ class MovieProvidersActivity : AppCompatActivity() {
         viewModel.getMovieByProviders(providersId).observe(this){ providers->
             val adapterMovies = AdapterMovies()
             adapterMovies.submitData(this.lifecycle, providers)
-            binding.rvProviders.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                header = MovieLoadStateAdapter{adapterMovies.retry()},
-                footer = MovieLoadStateAdapter{adapterMovies.retry()}
-            )
+            binding.rvProviders.adapter = adapterMovies
 
             binding.btnRetry.setOnClickListener {
                 adapterMovies.retry()
@@ -66,6 +62,14 @@ class MovieProvidersActivity : AppCompatActivity() {
                     tvError.isVisible = loadState.source.refresh is LoadState.Error
                     btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                     rvProviders.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                    if (loadState.source.refresh is LoadState.NotLoading &&
+                        loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                        rvProviders.isVisible = false
+                        tvError.isVisible = true
+                    }else{
+                        tvError.isVisible = false
+                    }
                 }
             }
         }

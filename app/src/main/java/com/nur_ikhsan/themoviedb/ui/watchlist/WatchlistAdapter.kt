@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.nur_ikhsan.themoviedb.BuildConfig
+import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.data.local.WatchlistMovie
 import com.nur_ikhsan.themoviedb.databinding.ItemMovieBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
@@ -30,10 +31,11 @@ class WatchlistAdapter(private val watchlistMovie : List<WatchlistMovie>) : Recy
             binding.apply {
 
                 Glide.with(itemView.context)
-                    .load(Uri.parse(BuildConfig.URL_IMAGE + watchlist.poster_path))
+                    .load(Uri.parse("https://image.tmdb.org/t/p/w500/${watchlist.poster_path}"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .transition(DrawableTransitionOptions.withCrossFade(100))
                     .transform(RoundedCorners(30))
+                    .transition(DrawableTransitionOptions.withCrossFade(100))
+                    .error(R.drawable.bg_image)
                     .into(imageMovie)
 
                 tvTitleMovie.text = watchlist.title

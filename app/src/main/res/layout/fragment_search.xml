@@ -25,7 +25,7 @@
             android:id="@+id/searchMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="-40dp"
+            android:paddingStart="-30dp"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
             app:queryHint="Search...."

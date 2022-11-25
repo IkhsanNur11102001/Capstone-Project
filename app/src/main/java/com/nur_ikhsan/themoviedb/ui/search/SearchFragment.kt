@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentSearchBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,16 +50,21 @@ class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
                         adapterMovies.retry()
                     }
 
-                    rvResultMovie.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                        header = MovieLoadStateAdapter{adapterMovies.retry()},
-                        footer = MovieLoadStateAdapter{adapterMovies.retry()})
-                    rvResultMovie.scrollToPosition(0)
+                    rvResultMovie.adapter = adapterMovies
 
                     adapterMovies.addLoadStateListener { loadState->
                         binding.apply {
                             tvError.isVisible = loadState.source.refresh is LoadState.Error
                             btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                             rvResultMovie.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                            if (loadState.source.refresh is LoadState.NotLoading &&
+                                loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                                rvResultMovie.isVisible = false
+                                tvError.isVisible = true
+                            }else{
+                                tvError.isVisible = false
+                            }
                         }
                     }
 
@@ -79,7 +83,7 @@ class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
             binding.rvResultMovie.isVisible = false
             binding.rvResultKeyWord.isVisible = false
         }
-        return false
+        return true
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
@@ -100,7 +104,7 @@ class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
             binding.rvResultKeyWord.isVisible = false
             binding.rvResultMovie.isVisible = false
         }
-        return false
+        return true
     }
 
     override fun onDestroyView() {

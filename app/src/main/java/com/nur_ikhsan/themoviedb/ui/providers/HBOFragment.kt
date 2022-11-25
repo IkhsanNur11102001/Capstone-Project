@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentHBOBinding
 import com.nur_ikhsan.themoviedb.ui.movie.MovieViewModel
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
@@ -45,10 +44,8 @@ class HBOFragment : Fragment() {
             val adapterMovies = AdapterMovies()
             adapterMovies.submitData(viewLifecycleOwner.lifecycle, hbo)
             binding.apply {
-                rvHBO.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                    header = MovieLoadStateAdapter{adapterMovies.retry()},
-                    footer = MovieLoadStateAdapter{adapterMovies.retry()}
-                )
+                rvHBO.adapter = adapterMovies
+
                 rvHBO.layoutManager = GridLayoutManager(context, 3)
             }
             adapterMovies.addLoadStateListener { loadState->
@@ -56,6 +53,14 @@ class HBOFragment : Fragment() {
                     tvError.isVisible = loadState.source.refresh is LoadState.Error
                     btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                     rvHBO.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                    if (loadState.source.refresh is LoadState.NotLoading &&
+                        loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                        rvHBO.isVisible = false
+                        tvError.isVisible = true
+                    }else{
+                        tvError.isVisible = false
+                    }
                 }
             }
         }

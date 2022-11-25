@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_navigation_home_to_HBOFragment"
             app:destination="@id/HBOFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
 
     </fragment>
 
@@ -121,5 +124,10 @@
         android:name="com.nur_ikhsan.themoviedb.ui.providers.HBOFragment"
         android:label="fragment_h_b_o"
         tools:layout="@layout/fragment_h_b_o" />
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.movie.DiscoverFragment"
+        android:label="fragment_discover"
+        tools:layout="@layout/fragment_discover" />
 
 </navigation>

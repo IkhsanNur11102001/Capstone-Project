@@ -49,4 +49,7 @@
     <string name="job_or_character">Job or character</string>
     <string name="name">Name</string>
     <string name="update">Update</string>
+    <string name="sort">Sort</string>
+    <string name="_2022">2022</string>
+    <string name="_2020">2020</string>
 </resources>

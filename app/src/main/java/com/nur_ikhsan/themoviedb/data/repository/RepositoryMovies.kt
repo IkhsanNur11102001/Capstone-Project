@@ -16,15 +16,12 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RepositoryMovies
-@Inject
-constructor(private val apiInterface: ApiInterface) {
+class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterface) {
 
     fun getToRatedMovies() = Pager(
         config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = { PagingSourceTopRated(apiInterface = apiInterface) }
     ).liveData
 
@@ -32,8 +29,7 @@ constructor(private val apiInterface: ApiInterface) {
     fun getPopularMovies() = Pager(
         config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = { PagingSourcePopular(apiInterface = apiInterface) }
     ).liveData
 
@@ -41,8 +37,7 @@ constructor(private val apiInterface: ApiInterface) {
     fun getUpComingMovies() = Pager(
         config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = { PagingSourceUpComing(apiInterface = apiInterface) }
     ).liveData
 
@@ -50,8 +45,7 @@ constructor(private val apiInterface: ApiInterface) {
     fun getNowPlayingMovies() = Pager(
         config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = { PagingSourceNowPlaying(apiInterface = apiInterface) }
     ).liveData
 
@@ -59,32 +53,28 @@ constructor(private val apiInterface: ApiInterface) {
     fun getMoviesByGenres(genresId : String) =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceMovieGenres(apiInterface, genresId = genresId)}
         ).liveData
 
     fun getResultMovies(query : String) =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceResultMovie(apiInterface, query = query)}
         ).liveData
 
     fun getResultKeyword(query : String) =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceResultKeyword(apiInterface, query = query)}
         ).liveData
 
     fun getMovieByProviders(providersId : String) =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceProviders(apiInterface = apiInterface, providersId)}
         ).liveData
 
@@ -92,8 +82,7 @@ constructor(private val apiInterface: ApiInterface) {
     fun getNetflixMovies() =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceNetflix(apiInterface = apiInterface)}
         ).liveData
 
@@ -101,8 +90,7 @@ constructor(private val apiInterface: ApiInterface) {
     fun getAppleMovies() =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceApple(apiInterface = apiInterface)}
         ).liveData
 
@@ -110,18 +98,30 @@ constructor(private val apiInterface: ApiInterface) {
     fun getDisneyMovies() =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceDisney(apiInterface = apiInterface)}
         ).liveData
 
     fun getHboMax() =
         Pager( config = PagingConfig(
             pageSize = 5,
-            maxSize = 20,
-            enablePlaceholders = false
+            maxSize = 20
         ), pagingSourceFactory = {PagingSourceHboMax(apiInterface)}
     ).liveData
+
+    fun getDiscover2022() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20
+        ), pagingSourceFactory = {PagingDiscover2022(apiInterface)}
+        ).liveData
+
+    fun getDiscover2020() =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20
+        ), pagingSourceFactory = {PagingDiscover2020(apiInterface)}
+        ).liveData
 
 
     fun getReviews(movieId: String) : LiveData<List<ReviewsItem>>{

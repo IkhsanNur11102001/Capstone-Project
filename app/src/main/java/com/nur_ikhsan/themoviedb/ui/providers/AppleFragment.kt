@@ -9,8 +9,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.R
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentAppleBinding
 import com.nur_ikhsan.themoviedb.ui.movie.MovieViewModel
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
@@ -45,16 +43,22 @@ class AppleFragment : Fragment() {
             val adapterMovies = AdapterMovies()
             adapterMovies.submitData(viewLifecycleOwner.lifecycle, apple)
             binding.apply {
-                rvApple.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                    header = MovieLoadStateAdapter{adapterMovies.retry()},
-                    footer = MovieLoadStateAdapter{adapterMovies.retry()}
-                )
+                rvApple.adapter = adapterMovies
+
                 rvApple.layoutManager = GridLayoutManager(context, 3)
                 adapterMovies.addLoadStateListener { loadState->
                     binding.apply {
                         tvError.isVisible = loadState.source.refresh is LoadState.Error
                         btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                         rvApple.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                        if (loadState.source.refresh is LoadState.NotLoading &&
+                            loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                            rvApple.isVisible = false
+                            tvError.isVisible = true
+                        }else{
+                            tvError.isVisible = false
+                        }
                     }
                 }
             }

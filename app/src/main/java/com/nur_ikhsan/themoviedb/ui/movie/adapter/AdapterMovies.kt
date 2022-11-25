@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
+import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 import com.nur_ikhsan.themoviedb.databinding.ItemMovieBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
@@ -32,8 +32,9 @@ class AdapterMovies : PagingDataAdapter<ResultMovie, AdapterMovies.ViewHolder>(C
 
             binding.apply {
                 Glide.with(itemView.context)
-                    .load(Uri.parse(URL_IMAGE + movies.posterPath))
+                    .load(Uri.parse("https://image.tmdb.org/t/p/w500/${movies.posterPath}"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.bg_image)
                     .transition(DrawableTransitionOptions.withCrossFade(100))
                     .transform(RoundedCorners(30))
                     .into(imageMovie)

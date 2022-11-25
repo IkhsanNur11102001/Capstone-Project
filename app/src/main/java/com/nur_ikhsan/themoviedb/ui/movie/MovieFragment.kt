@@ -121,6 +121,9 @@ class MovieFragment : Fragment() {
                 when(it.itemId){
                     R.id.navigation_search ->
                         findNavController().navigate(R.id.action_navigation_home_to_searchFragment)
+
+                    R.id.nav_sort ->
+                        findNavController().navigate(R.id.action_navigation_home_to_discoverFragment)
                 }
                 true
             }

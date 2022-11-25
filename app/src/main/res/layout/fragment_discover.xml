@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".ui.movie.DiscoverFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMovie"
+        app:title="Discover"
+        app:titleTextColor="@color/light_grey"
+        android:theme="@android:style/ThemeOverlay.Material.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/sort_menu"
+        app:navigationIcon="@drawable/ic_back"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDiscover"
+        android:padding="5dp"
+        android:layout_below="@id/toolbarMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnRetry"
+        android:layout_centerInParent="true"
+        android:text="@string/no_internet_connection_please_try_again"
+        android:textAlignment="center"
+        android:textColor="@color/light_grey"
+        android:textSize="15sp"
+        app:drawableTopCompat="@drawable/ic_signal" />
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:backgroundTint="@color/orange"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/retry"
+        android:textAllCaps="false"
+        android:textColor="@color/light_grey" />
+
+</RelativeLayout>

@@ -6,34 +6,15 @@
     android:layout_height="wrap_content"
     android:padding="5dp">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    <ImageView
-        android:layout_gravity="center"
-        android:background="@drawable/bg_image"
-        android:layout_width="105dp"
-        android:layout_height="140dp"/>
-
-    <ImageView
-        android:layout_gravity="center"
-        android:src="@drawable/ic_no_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <ImageView
         android:id="@+id/imageMovie"
         android:scaleType="fitXY"
         android:layout_width="105dp"
         android:layout_height="140dp"/>
 
-    </FrameLayout>
-
     <TextView
         android:id="@+id/tvTitleMovie"
         android:textSize="12sp"
-        android:text="@string/title"
         android:layout_marginTop="10dp"
         android:textColor="@color/light_grey"
         android:maxLines="2"

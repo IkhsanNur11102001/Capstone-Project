@@ -39,4 +39,10 @@ class MovieViewModel @Inject constructor(private val repositoryMovies: Repositor
     val hboMax : LiveData<PagingData<ResultMovie>> =
         repositoryMovies.getHboMax().cachedIn(viewModelScope)
 
+    val discover2022 : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getDiscover2022().cachedIn(viewModelScope)
+
+    val discover2020 : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getDiscover2020().cachedIn(viewModelScope)
+
 }

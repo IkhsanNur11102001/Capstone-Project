@@ -9,7 +9,6 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.ActivityGenresBinding
 import com.nur_ikhsan.themoviedb.ui.genres.GenresViewModel
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
@@ -36,9 +35,7 @@ class GenresActivity : AppCompatActivity() {
                     val adapterMovies = AdapterMovies()
                     adapterMovies.submitData(this.lifecycle, genres)
 
-                    binding.rvGenres.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                        header = MovieLoadStateAdapter { adapterMovies.retry() },
-                        footer = MovieLoadStateAdapter { adapterMovies.retry() })
+                    binding.rvGenres.adapter = adapterMovies
 
                     if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                         binding.rvGenres.layoutManager = GridLayoutManager(this, 3)
@@ -54,8 +51,17 @@ class GenresActivity : AppCompatActivity() {
                             tvError.isVisible = loadState.source.refresh is LoadState.Error
                             btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                             rvGenres.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                            if (loadState.source.refresh is LoadState.NotLoading &&
+                                loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                                rvGenres.isVisible = false
+                                tvError.isVisible = true
+                            }else{
+                                tvError.isVisible = false
+                            }
                         }
                     }
+
                     setSupportActionBar(binding.toolbarMovie)
                     supportActionBar?.title = genresName
                     assert(supportActionBar != null)

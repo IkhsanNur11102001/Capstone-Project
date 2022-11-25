@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentPopularBinding
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,10 +48,8 @@ class PopularFragment : Fragment() {
         }
 
         binding.apply {
-            rvPopular.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                header = MovieLoadStateAdapter{ adapterMovies.retry()},
-                footer = MovieLoadStateAdapter{ adapterMovies.retry()}
-            )
+            rvPopular.adapter = adapterMovies
+
           if (context?.applicationContext!!.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
               rvPopular.layoutManager = GridLayoutManager(context, 3)
           }else{
@@ -69,6 +66,14 @@ class PopularFragment : Fragment() {
                 tvError.isVisible = loadSate.source.refresh is LoadState.Error
                 btnRetry.isVisible = loadSate.source.refresh is LoadState.Error
                 rvPopular.isVisible = loadSate.source.refresh is LoadState.NotLoading
+
+                if (loadSate.source.refresh is LoadState.NotLoading &&
+                    loadSate.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                    rvPopular.isVisible = false
+                    tvError.isVisible = true
+                }else{
+                    tvError.isVisible = false
+                }
             }
         }
     }

@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.data.paging.adapter.MovieLoadStateAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentNetflixBinding
 import com.nur_ikhsan.themoviedb.ui.movie.MovieViewModel
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
@@ -43,10 +42,8 @@ class NetflixFragment : Fragment() {
             if (netflix != null){
                 adapterMovies.submitData(viewLifecycleOwner.lifecycle, netflix)
                 binding.apply {
-                    rvNetflix.adapter = adapterMovies.withLoadStateHeaderAndFooter(
-                        header = MovieLoadStateAdapter{adapterMovies.retry()},
-                        footer = MovieLoadStateAdapter{adapterMovies.retry()}
-                    )
+                    rvNetflix.adapter = adapterMovies
+
                     if (context?.applicationContext!!.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
                         rvNetflix.layoutManager = GridLayoutManager(context, 3)
                     }else{
@@ -66,6 +63,14 @@ class NetflixFragment : Fragment() {
                             tvError.isVisible = loadState.source.refresh is LoadState.Error
                             btnRetry.isVisible = loadState.source.refresh is LoadState.Error
                             rvNetflix.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+                            if (loadState.source.refresh is LoadState.NotLoading &&
+                                loadState.append.endOfPaginationReached && adapterMovies.itemCount < 1){
+                                rvNetflix.isVisible = false
+                                tvError.isVisible = true
+                            }else{
+                                tvError.isVisible = false
+                            }
                         }
                     }
                 }

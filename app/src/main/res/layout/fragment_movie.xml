@@ -15,11 +15,10 @@
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/light_grey"
         android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         app:menu="@menu/nav_search"
         app:navigationIcon="@drawable/ic_profile" />
+
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested"
