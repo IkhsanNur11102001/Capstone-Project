@@ -29,7 +29,7 @@ class CastAdapter : ListAdapter<CastItem, CastAdapter.ViewHolder>(CAST) {
             if (credits != null){
 
                 binding.apply {
-                    imageCredits.load("$URL_IMAGE${credits.profilePath}"){
+                    imageCredits.load("https://image.tmdb.org/t/p/w185/${credits.profilePath}"){
                         crossfade(true)
                         crossfade(100)
                         transformations(CircleCropTransformation())

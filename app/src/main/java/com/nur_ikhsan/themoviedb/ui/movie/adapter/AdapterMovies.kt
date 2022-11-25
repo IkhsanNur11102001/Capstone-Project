@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -31,15 +32,18 @@ class AdapterMovies : PagingDataAdapter<ResultMovie, AdapterMovies.ViewHolder>(C
             }
 
             binding.apply {
-                Glide.with(itemView.context)
-                    .load(Uri.parse("https://image.tmdb.org/t/p/w500/${movies.posterPath}"))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .error(R.drawable.bg_image)
-                    .transition(DrawableTransitionOptions.withCrossFade(100))
-                    .transform(RoundedCorners(30))
-                    .into(imageMovie)
 
                 tvTitleMovie.text = movies.title
+                val posterPath = movies.posterPath
+
+                    Glide.with(itemView.context)
+                        .load(Uri.parse("https://image.tmdb.org/t/p/w342/${posterPath}"))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.bg_image)
+                        .transition(DrawableTransitionOptions.withCrossFade(100))
+                        .transform(RoundedCorners(30))
+                        .into(imageMovie)
+
             }
         }
     }

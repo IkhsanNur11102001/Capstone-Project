@@ -12,7 +12,7 @@
         android:id="@+id/toolbarMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/apple_itunes"
+        app:title="@string/apple_plus"
         android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         app:titleTextColor="@color/light_grey"
         app:navigationIcon="@drawable/ic_back"/>

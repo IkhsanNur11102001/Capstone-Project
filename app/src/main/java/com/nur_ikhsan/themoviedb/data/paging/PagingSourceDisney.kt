@@ -9,15 +9,15 @@ class PagingSourceDisney(private val apiInterface: ApiInterface) : PagingSource<
 
     companion object{
         const val STARTING_PAGE = 1
+        const val WATCH_REGION = "US"
         const val REGION = "US"
-        const val YEAR = 2022
         const val DISNEY = "337"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key?: STARTING_PAGE
-            val response = apiInterface.getMovieWithProviders(providers = DISNEY, REGION, page, YEAR)
+            val response = apiInterface.getMovieWithProviders(providers = DISNEY, WATCH_REGION,REGION, page)
             val resultMovie = response.body()?.results
 
             LoadResult.Page(

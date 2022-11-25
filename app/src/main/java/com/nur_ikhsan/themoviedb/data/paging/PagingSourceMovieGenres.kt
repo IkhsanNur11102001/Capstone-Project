@@ -10,13 +10,12 @@ class PagingSourceMovieGenres(private val apiInterface: ApiInterface, private va
     companion object{
         const val FIRST_PAGE = 1
         const val REGION = "US"
-        const val YEAR = 2022
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key ?: FIRST_PAGE
-            val response = apiInterface.getMovieByGenres(genresId, page, REGION, YEAR)
+            val response = apiInterface.getMovieByGenres(genresId, page, REGION)
             val dataMovies = response.body()?.results
 
             LoadResult.Page(

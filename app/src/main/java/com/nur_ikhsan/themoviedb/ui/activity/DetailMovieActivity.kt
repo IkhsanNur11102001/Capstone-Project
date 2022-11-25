@@ -236,7 +236,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
 
                 Glide.with(this)
-                    .load(Uri.parse("$URL_IMAGE${detail.posterPath}"))
+                    .load(Uri.parse("https://image.tmdb.org/t/p/w342/${detail.posterPath}"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .transition(DrawableTransitionOptions.withCrossFade(100))
                     .transform(RoundedCorners(30))

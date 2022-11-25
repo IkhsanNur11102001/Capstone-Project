@@ -24,7 +24,7 @@ class ReviewsAdapter : ListAdapter<ReviewsItem, ReviewsAdapter.ViewHolder>(Revie
             if (reviews != null){
                 val avatar = reviews.authorDetails.avatarPath
                     binding.apply {
-                        imageReviews.load("$URL_IMAGE${avatar}"){
+                        imageReviews.load("https://image.tmdb.org/t/p/w342/${avatar}"){
                             crossfade(true)
                             crossfade(100)
                             transformations(CircleCropTransformation())

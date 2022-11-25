@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
        setOf(
-           R.id.navigation_home, R.id.navigation_genres, R.id.navigation_providers, R.id.navigation_favorite, R.id.navigation_notifications)
+           R.id.navigation_home, R.id.navigation_genres, R.id.navigation_favorite, R.id.navigation_notifications)
         navView.setupWithNavController(navController)
     }
 }

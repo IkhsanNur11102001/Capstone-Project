@@ -537,7 +537,7 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/apple_itunes"
+                    android:text="@string/apple_plus"
                     android:textColor="@color/light_grey"
                     android:textSize="20sp"/>
 
@@ -747,6 +747,84 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvHBO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <!--paramount-->
+        <LinearLayout
+            android:id="@+id/itemParamount"
+            android:orientation="vertical"
+            android:layout_below="@id/itemHboMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paramount"
+                    android:textColor="@color/light_grey"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvParamount"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/grey"
+                    android:text="@string/movie"
+                    android:textAllCaps="true"
+                    android:textSize="12sp"
+                    app:drawableEndCompat="@drawable/ic_next" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/tvErrorParamount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/btnRetryParamount"
+                    android:layout_centerInParent="true"
+                    android:text="@string/no_internet_connection_please_try_again"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_grey"
+                    android:textSize="15sp"
+                    app:drawableTopCompat="@drawable/ic_signal" />
+
+                <Button
+                    android:id="@+id/btnRetryParamount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="@string/retry"
+                    android:textAllCaps="false"
+                    android:textColor="@color/light_grey" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvParamount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp" />

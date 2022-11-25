@@ -21,7 +21,7 @@ android {
 
         buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
         buildConfigField("String", "API_KEY", '"0472f7d4ffa78d6681edf657193c8625"')
-        buildConfigField("String", "URL_IMAGE", '"https://image.tmdb.org/t/p/original/"')
+        buildConfigField("String", "URL_IMAGE", '"https://image.tmdb.org/t/p/w1280/"')
         buildConfigField("String", "URL_THUMBNAIL", '"https://img.youtube.com/vi/"')
     }
 

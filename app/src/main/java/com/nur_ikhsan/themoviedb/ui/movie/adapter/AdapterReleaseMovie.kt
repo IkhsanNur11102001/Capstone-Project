@@ -23,9 +23,9 @@ class AdapterReleaseMovie(private val certificate : List<ReleaseItem>) : Recycle
             binding.tvCountry.text = locale.displayCountry
             if (certificate!!.isNotEmpty()){
                 binding.tvCertificate.text = certificate
-                binding.tvCertificate.isVisible = true
+                binding.itemRelease.isVisible = true
             }else{
-                binding.tvCertificate.isVisible = false
+                binding.itemRelease.isVisible = false
             }
         }
     }

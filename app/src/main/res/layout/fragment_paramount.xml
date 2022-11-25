@@ -1,28 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_color"
-    tools:context=".ui.movie.DiscoverFragment">
+    tools:context=".ui.providers.ParamountFragment">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMovie"
-        app:title="Discover"
-        app:titleTextColor="@color/light_grey"
-        android:theme="@android:style/ThemeOverlay.Material.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/sort_menu"
+        app:title="@string/paramount"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+        app:titleTextColor="@color/light_grey"
         app:navigationIcon="@drawable/ic_back"/>
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDiscover"
-        android:padding="5dp"
-        android:layout_below="@id/toolbarMovie"
+        android:id="@+id/rvParamount"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarMovie"
+        android:padding="5dp"/>
 
     <TextView
         android:id="@+id/tvError"

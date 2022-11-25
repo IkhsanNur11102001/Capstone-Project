@@ -32,7 +32,6 @@ class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.apply {
             searchMovie.onActionViewExpanded()
             searchMovie.setOnQueryTextListener(this@SearchFragment)
-
             toolbarMovie.setNavigationOnClickListener {
                 requireActivity().onBackPressed()
             }

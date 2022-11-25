@@ -23,9 +23,9 @@ interface ApiInterface {
     fun getDetailsMovie(@Path("movie_id") movieId : String) : Call<ResponseDetailMovie>
 
     @GET("discover/movie?api_key=$API_KEY")
-    suspend fun getMovieByGenres(@Query("with_genres") genresId : String, @Query("page") page : Int,
-                                 @Query("region") region: String,
-                                 @Query("primary_release_year") year : Int) : Response<ResponseMovies>
+    suspend fun getMovieByGenres(@Query("with_genres") genresId : String,
+                                 @Query("page") page : Int,
+                                 @Query("region") region: String) : Response<ResponseMovies>
 
     @GET("search/movie?api_key=$API_KEY")
     suspend fun searchMovie(@Query("query") query : String, @Query("page") page : Int,
@@ -39,39 +39,24 @@ interface ApiInterface {
 
 
 
-    @GET("watch/providers/movie?api_key=$API_KEY")
-    fun getProviders(@Query("watch_region") region : String) : Call<ResponseProviders>
-
-
-    @GET("discover/movie?api_key=$API_KEY")
-    suspend fun getMovieByProviders(@Query("with_watch_providers") providers : String,
-                                    @Query("watch_region") region: String,
-                                    @Query("page") page : Int,
-                                    @Query("primary_release_year") year : Int) : Response<ResponseMovies>
-
-
-
     @GET("discover/movie?api_key=$API_KEY")
     suspend fun getMovieWithProviders(@Query("with_watch_providers") providers : String,
-                                      @Query("watch_region") region: String,
+                                      @Query("watch_region") watch_region: String,
+                                      @Query("region") region: String,
                                       @Query("page") page : Int,
-                                      @Query("primary_release_year") year : Int) : Response<ResponseMovies>
+                    ) : Response<ResponseMovies>
 
 
     @GET("movie/{movie_id}/watch/providers?api_key=$API_KEY")
     fun getProvidersMovieDetail(@Path("movie_id") movieId: String) : Call<ResponseProvidersDetailMovies>
 
     @GET("movie/{movie_id}/release_dates?api_key=$API_KEY")
-    fun getReleaseMovie(@Path("movie_id") movieId: String,
-                        @Query("region") region: String) : Call<ResponseReleaseMovie>
+    fun getReleaseMovie(@Path("movie_id") movieId: String) : Call<ResponseReleaseMovie>
 
     @GET("movie/{movie_id}/credits?api_key=$API_KEY")
     fun getCreditsMovie(@Path("movie_id") movieId: String) : Call<ResponseCreditsMovie>
 
     @GET("movie/{movie_id}/reviews?api_key=$API_KEY")
     fun getReviews(@Path("movie_id") movieId: String) : Call<ResponseReviews>
-
-    @GET("discover/movie?api_key=$API_KEY")
-    suspend fun getSortDiscoverMovie(@Query("primary_release_year") year : Int, @Query("page") page: Int, @Query("region") region: String) : Response<ResponseMovies>
 
 }

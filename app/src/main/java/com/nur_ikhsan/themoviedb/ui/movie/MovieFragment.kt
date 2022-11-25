@@ -52,6 +52,7 @@ class MovieFragment : Fragment() {
         initAppleTv()
         initDisney()
         initHBOmax()
+        initParamount()
 
     }
 
@@ -108,6 +109,9 @@ class MovieFragment : Fragment() {
             tvHBO.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_HBOFragment)
             }
+            tvParamount.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_home_to_paramountFragment)
+            }
         }
     }
 
@@ -118,12 +122,9 @@ class MovieFragment : Fragment() {
             }
 
             toolbarMovie.setOnMenuItemClickListener {
-                when(it.itemId){
+                when(it.itemId) {
                     R.id.navigation_search ->
                         findNavController().navigate(R.id.action_navigation_home_to_searchFragment)
-
-                    R.id.nav_sort ->
-                        findNavController().navigate(R.id.action_navigation_home_to_discoverFragment)
                 }
                 true
             }
@@ -139,6 +140,32 @@ class MovieFragment : Fragment() {
                 binding.itemWatchlist.isVisible = true
             }else{
                 binding.itemWatchlist.isVisible = false
+            }
+        }
+    }
+
+
+    //paramount
+    private fun initParamount() {
+        viewModel.paramount.observe(viewLifecycleOwner){ paramount->
+            if (paramount != null){
+                val adapterMovies = AdapterMovies()
+                adapterMovies.submitData(viewLifecycleOwner.lifecycle, paramount)
+                binding.apply {
+                    rvParamount.adapter = adapterMovies
+                    rvParamount.layoutManager = LinearLayoutManager(context,
+                        LinearLayoutManager.HORIZONTAL, false)
+                    btnRetryParamount.setOnClickListener {
+                        adapterMovies.retry()
+                    }
+                    adapterMovies.addLoadStateListener { loadState->
+                        binding.apply {
+                            tvErrorParamount.isVisible = loadState.source.refresh is LoadState.Error
+                            btnRetryParamount.isVisible = loadState.source.refresh is LoadState.Error
+                            rvParamount.isVisible = loadState.source.refresh is LoadState.NotLoading
+                        }
+                    }
+                }
             }
         }
     }

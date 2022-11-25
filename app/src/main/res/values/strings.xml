@@ -35,8 +35,8 @@
     <string name="home_page">Homepage</string>
     <string name="providers">Providers</string>
     <string name="netflix">Netflix</string>
-    <string name="apple_itunes">Apple iTunes</string>
-    <string name="disney">Disney+</string>
+    <string name="apple_plus">Apple Tv +</string>
+    <string name="disney">Disney +</string>
     <string name="best_collection_movies">Best Collections\nMovie</string>
     <string name="hbo_max">HBO max</string>
     <string name="keyword">Keyword</string>
@@ -49,7 +49,8 @@
     <string name="job_or_character">Job or character</string>
     <string name="name">Name</string>
     <string name="update">Update</string>
-    <string name="sort">Sort</string>
-    <string name="_2022">2022</string>
-    <string name="_2020">2020</string>
+    <string name="paramount">Paramount +</string>
+    <string name="stream_on">Stream on</string>
+    <string name="buy_on">Buy on</string>
+    <string name="rent_on">Rent on</string>
 </resources>

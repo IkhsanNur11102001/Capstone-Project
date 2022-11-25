@@ -28,9 +28,9 @@ class CollectionAdapter(private val collection : List<CollectionItem>) : Recycle
             }
 
             binding.apply {
-
+                val poster = collectionItem.posterPath
                 Glide.with(itemView.context)
-                    .load(Uri.parse(BuildConfig.URL_IMAGE + collectionItem.posterPath))
+                    .load(Uri.parse("https://image.tmdb.org/t/p/w342/$poster"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .transition(DrawableTransitionOptions.withCrossFade(100))
                     .transform(RoundedCorners(30))

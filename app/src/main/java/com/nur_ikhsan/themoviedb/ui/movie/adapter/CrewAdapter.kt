@@ -29,7 +29,7 @@ class CrewAdapter : ListAdapter<CrewItem, CrewAdapter.ViewHolder>(CREW) {
         fun setCrew(crew: CrewItem?) {
             if (crew != null){
                 binding.apply {
-                    imageCredits.load("$URL_IMAGE${crew.profilePath}"){
+                    imageCredits.load("https://image.tmdb.org/t/p/w185/${crew.profilePath}"){
                         crossfade(true)
                         crossfade(false)
                         transformations(CircleCropTransformation())

@@ -31,7 +31,7 @@ class WatchlistAdapter(private val watchlistMovie : List<WatchlistMovie>) : Recy
             binding.apply {
 
                 Glide.with(itemView.context)
-                    .load(Uri.parse("https://image.tmdb.org/t/p/w500/${watchlist.poster_path}"))
+                    .load(Uri.parse("https://image.tmdb.org/t/p/w342/${watchlist.poster_path}"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .transform(RoundedCorners(30))
                     .transition(DrawableTransitionOptions.withCrossFade(100))

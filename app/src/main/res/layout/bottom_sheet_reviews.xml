@@ -6,13 +6,13 @@
     android:background="@color/secondary_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/btnBack"
         android:src="@drawable/ic_down"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:layout_width="30dp"
         android:layout_height="30dp"/>
 

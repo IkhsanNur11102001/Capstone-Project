@@ -10,14 +10,14 @@ class PagingSourceApple(private val apiInterface: ApiInterface) : PagingSource<I
     companion object{
         const val STARTING_PAGE = 1
         const val REGION = "US"
-        const val YEAR = 2022
-        const val APPLE_PLUS = "2"
+        const val WATCH_REGION = "US"
+        const val APPLE_PLUS = "350"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key?: STARTING_PAGE
-            val response = apiInterface.getMovieWithProviders(providers = APPLE_PLUS, REGION, page, YEAR)
+            val response = apiInterface.getMovieWithProviders(providers = APPLE_PLUS, WATCH_REGION, REGION, page)
             val resultMovie = response.body()?.results
 
             LoadResult.Page(

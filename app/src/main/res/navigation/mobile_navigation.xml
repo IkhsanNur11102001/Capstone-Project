@@ -47,9 +47,8 @@
             android:id="@+id/action_navigation_home_to_HBOFragment"
             app:destination="@id/HBOFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_discoverFragment"
-            app:destination="@id/discoverFragment" />
-
+            android:id="@+id/action_navigation_home_to_paramountFragment"
+            app:destination="@id/paramountFragment" />
     </fragment>
 
     <fragment
@@ -99,11 +98,7 @@
         android:name="com.nur_ikhsan.themoviedb.ui.movie.NowPlayingFragment"
         android:label="fragment_now_playing"
         tools:layout="@layout/fragment_now_playing" />
-    <fragment
-        android:id="@+id/navigation_providers"
-        android:name="com.nur_ikhsan.themoviedb.ui.providers.ProvidersFragment"
-        android:label="fragment_providers"
-        tools:layout="@layout/fragment_providers"/>
+
     <fragment
         android:id="@+id/netflixFragment"
         android:name="com.nur_ikhsan.themoviedb.ui.providers.NetflixFragment"
@@ -125,9 +120,9 @@
         android:label="fragment_h_b_o"
         tools:layout="@layout/fragment_h_b_o" />
     <fragment
-        android:id="@+id/discoverFragment"
-        android:name="com.nur_ikhsan.themoviedb.ui.movie.DiscoverFragment"
-        android:label="fragment_discover"
-        tools:layout="@layout/fragment_discover" />
+        android:id="@+id/paramountFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.providers.ParamountFragment"
+        android:label="fragment_paramount"
+        tools:layout="@layout/fragment_paramount" />
 
 </navigation>

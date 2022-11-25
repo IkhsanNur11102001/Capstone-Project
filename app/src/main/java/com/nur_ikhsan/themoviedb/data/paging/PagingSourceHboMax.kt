@@ -9,15 +9,15 @@ class PagingSourceHboMax(private val apiInterface: ApiInterface) : PagingSource<
 
     companion object{
         const val STARTING_PAGE = 1
+        const val WATCH_REGION = "US"
         const val REGION = "US"
-        const val YEAR = 2022
         const val HBO = "384"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key ?: STARTING_PAGE
-            val response = apiInterface.getMovieWithProviders(providers = HBO, REGION, page, YEAR)
+            val response = apiInterface.getMovieWithProviders(providers = HBO, WATCH_REGION,REGION, page)
             val dataMovies = response.body()?.results
 
             LoadResult.Page(

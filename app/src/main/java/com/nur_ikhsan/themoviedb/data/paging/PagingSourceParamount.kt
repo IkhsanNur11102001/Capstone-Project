@@ -5,18 +5,19 @@ import androidx.paging.PagingState
 import com.nur_ikhsan.themoviedb.data.network.ApiInterface
 import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 
-class PagingDiscover2020(private val apiInterface: ApiInterface) : PagingSource<Int, ResultMovie>(){
+class PagingSourceParamount(private val apiInterface: ApiInterface) : PagingSource<Int, ResultMovie>(){
 
     companion object{
         const val STARTING_PAGE = 1
-        const val YEAR = 2020
         const val REGION = "US"
+        const val WATCH_REGION = "US"
+        const val PARAMOUNT = "531"
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ResultMovie> {
         return try {
             val page = params.key?: STARTING_PAGE
-            val response = apiInterface.getSortDiscoverMovie(YEAR, page, REGION)
+            val response = apiInterface.getMovieWithProviders(providers = PARAMOUNT, WATCH_REGION, REGION, page)
             val resultMovie = response.body()?.results
 
             LoadResult.Page(
