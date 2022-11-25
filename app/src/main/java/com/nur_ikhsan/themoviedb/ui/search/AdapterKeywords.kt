@@ -1,5 +1,6 @@
 package com.nur_ikhsan.themoviedb.ui.search
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -13,6 +14,15 @@ class AdapterKeywords : PagingDataAdapter<ResultKeyword, AdapterKeywords.ViewHol
 
     inner class ViewHolder(private val binding : ItemKeywordBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setKeyword(keyWord: ResultKeyword) {
+
+            itemView.setOnClickListener {
+                Intent(itemView.context, KeywordActivity::class.java).also { intent ->
+                    intent.putExtra(KeywordActivity.KEYWORD_ID, keyWord.id)
+                    intent.putExtra(KeywordActivity.KEYWORD_NAME, keyWord.name)
+                    itemView.context.startActivity(intent)
+                }
+            }
+
             binding.tvKeyword.text = keyWord.name
         }
     }

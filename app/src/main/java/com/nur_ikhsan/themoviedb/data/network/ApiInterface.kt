@@ -59,4 +59,7 @@ interface ApiInterface {
     @GET("movie/{movie_id}/reviews?api_key=$API_KEY")
     fun getReviews(@Path("movie_id") movieId: String) : Call<ResponseReviews>
 
+    @GET("keyword/{keyword_id}/movies?api_key=$API_KEY")
+    suspend fun getKeywordsMovie(@Path("keyword_id") keywordId : String, @Query("page") page: Int) : Response<ResponseMovies>
+
 }

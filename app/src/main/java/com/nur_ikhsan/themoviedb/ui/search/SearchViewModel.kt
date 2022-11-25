@@ -21,4 +21,7 @@ class SearchViewModel @Inject constructor(private val repositoryMovies: Reposito
     fun getResultKeyword(query: String) : LiveData<PagingData<ResultKeyword>> =
         repositoryMovies.getResultKeyword(query = query)
 
+    fun getMovieByKeyword(keywordId : String) : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getMovieByKeyword(keywordId = keywordId).cachedIn(viewModelScope)
+
 }

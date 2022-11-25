@@ -108,6 +108,13 @@ class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterfac
         ), pagingSourceFactory = {PagingSourceParamount(apiInterface)}
         ).liveData
 
+    fun getMovieByKeyword(keywordId : String) =
+        Pager(config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20
+        ), pagingSourceFactory = {PagingSourceMovieByKeyword(apiInterface, keywordId = keywordId)}
+    ).liveData
+
 
     fun getReviews(movieId: String) : LiveData<List<ReviewsItem>>{
         val reviews = MutableLiveData<List<ReviewsItem>>()
