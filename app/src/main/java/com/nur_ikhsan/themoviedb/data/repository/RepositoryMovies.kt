@@ -130,6 +130,27 @@ class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterfac
         ).liveData
 
 
+    fun getDetailCredits(creditsId : String) : LiveData<ResponseDetailCredits>{
+        val credits = MutableLiveData<ResponseDetailCredits>()
+        val response = apiInterface.getDetailCredits(personId = creditsId)
+        response.enqueue(object : Callback<ResponseDetailCredits>{
+            override fun onResponse(
+                call: Call<ResponseDetailCredits>,
+                response: Response<ResponseDetailCredits>
+            ) {
+                if (response.isSuccessful){
+                    credits.value = response.body()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseDetailCredits>, t: Throwable) {
+                Log.d("tag", t.message.toString())
+            }
+        })
+        return credits
+    }
+
+
     fun getReviews(movieId: String) : LiveData<List<ReviewsItem>>{
         val reviews = MutableLiveData<List<ReviewsItem>>()
         val response = apiInterface.getReviews(movieId = movieId)

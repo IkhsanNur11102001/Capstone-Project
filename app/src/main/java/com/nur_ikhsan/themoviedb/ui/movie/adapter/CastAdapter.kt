@@ -1,5 +1,6 @@
 package com.nur_ikhsan.themoviedb.ui.movie.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,6 +12,7 @@ import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.data.response.CastItem
 import com.nur_ikhsan.themoviedb.databinding.ItemCreditsBinding
+import com.nur_ikhsan.themoviedb.ui.activity.DetailCreditsActivity
 
 class CastAdapter : ListAdapter<CastItem, CastAdapter.ViewHolder>(CAST) {
 
@@ -27,6 +29,14 @@ class CastAdapter : ListAdapter<CastItem, CastAdapter.ViewHolder>(CAST) {
     class ViewHolder(val binding : ItemCreditsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setCredits(credits: CastItem?) {
             if (credits != null){
+
+                itemView.setOnClickListener {
+                    Intent(itemView.context, DetailCreditsActivity::class.java).also { intent ->
+                        intent.putExtra(DetailCreditsActivity.CREDITS_ID, credits.id)
+                        intent.putExtra(DetailCreditsActivity.CREDITS_NAME, credits.name)
+                        itemView.context.startActivity(intent)
+                    }
+                }
 
                 binding.apply {
                     imageCredits.load("https://image.tmdb.org/t/p/w185/${credits.profilePath}"){

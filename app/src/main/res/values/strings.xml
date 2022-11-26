@@ -53,4 +53,8 @@
     <string name="stream_on">Stream on</string>
     <string name="buy_on">Buy on</string>
     <string name="rent_on">Rent on</string>
+    <string name="department">Department</string>
+    <string name="born_on">Born on</string>
+    <string name="from">From</string>
+    <string name="google">Google</string>
 </resources>

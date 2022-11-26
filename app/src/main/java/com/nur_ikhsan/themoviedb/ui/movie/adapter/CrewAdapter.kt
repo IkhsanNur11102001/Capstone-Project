@@ -1,5 +1,6 @@
 package com.nur_ikhsan.themoviedb.ui.movie.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -11,6 +12,7 @@ import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.data.response.CrewItem
 import com.nur_ikhsan.themoviedb.databinding.ItemCreditsBinding
+import com.nur_ikhsan.themoviedb.ui.activity.DetailCreditsActivity
 
 class CrewAdapter : ListAdapter<CrewItem, CrewAdapter.ViewHolder>(CREW) {
 
@@ -28,6 +30,15 @@ class CrewAdapter : ListAdapter<CrewItem, CrewAdapter.ViewHolder>(CREW) {
     class ViewHolder(val binding : ItemCreditsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setCrew(crew: CrewItem?) {
             if (crew != null){
+
+                itemView.setOnClickListener {
+                    Intent(itemView.context, DetailCreditsActivity::class.java).also { intent ->
+                        intent.putExtra(DetailCreditsActivity.CREDITS_ID, crew.id)
+                        intent.putExtra(DetailCreditsActivity.CREDITS_NAME, crew.name)
+                        itemView.context.startActivity(intent)
+                    }
+                }
+
                 binding.apply {
                     imageCredits.load("https://image.tmdb.org/t/p/w185/${crew.profilePath}"){
                         crossfade(true)

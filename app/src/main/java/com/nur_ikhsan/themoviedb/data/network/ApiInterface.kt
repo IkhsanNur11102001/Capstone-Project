@@ -70,4 +70,7 @@ interface ApiInterface {
     suspend fun getSimilarMovie(@Path("movie_id") movieId: String,
                                 @Query("page") page: Int) : Response<ResponseMovies>
 
+    @GET("person/{person_id}?api_key=$API_KEY")
+    fun getDetailCredits(@Path("person_id") personId : String) : Call<ResponseDetailCredits>
+
 }

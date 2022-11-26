@@ -1,9 +1,11 @@
 package com.nur_ikhsan.themoviedb.utils
 
+import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.*
 
 object DateFormat {
+    @SuppressLint("SimpleDateFormat")
     fun formatDate(date : String, format : String) : String{
         var formatDate = ""
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -11,7 +13,7 @@ object DateFormat {
 
         try {
             val parseDate = sdf.parse(date)
-            formatDate = SimpleDateFormat(format).format(parseDate)
+            formatDate = SimpleDateFormat(format).format(parseDate!!)
         }catch (e : Exception){
             e.printStackTrace()
         }

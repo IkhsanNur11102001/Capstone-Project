@@ -41,6 +41,8 @@ class DetailViewModel
     fun getSimilar(movie_id: String) : LiveData<PagingData<ResultMovie>> =
         repositoryMovies.getSimilar(movieId = movie_id).cachedIn(viewModelScope)
 
+    fun getDetailCredits(creditsId : String) = repositoryMovies.getDetailCredits(creditsId = creditsId)
+
 
 
 }

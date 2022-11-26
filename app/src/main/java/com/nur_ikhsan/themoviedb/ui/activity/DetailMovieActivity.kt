@@ -22,7 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.ActivityDetailMovieBinding
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.PagerAdapter
+import com.nur_ikhsan.themoviedb.ui.movie.adapter.PagerAdapterDetailMovie
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.ReviewsAdapter
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterBuy
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterRent
@@ -41,7 +41,7 @@ import kotlinx.coroutines.withContext
 class DetailMovieActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityDetailMovieBinding
-    private lateinit var pagerAdapter: PagerAdapter
+    private lateinit var pagerAdapterDetailMovie: PagerAdapterDetailMovie
     private val viewModel by viewModels<WatchlistViewModel>()
     private val detailViewModel by viewModels<DetailViewModel>()
 
@@ -296,8 +296,8 @@ class DetailMovieActivity : AppCompatActivity() {
 
 
     private fun initPagerAdapter() {
-        pagerAdapter = PagerAdapter(supportFragmentManager, lifecycle)
-        binding.viewPagerDetail.adapter = pagerAdapter
+        pagerAdapterDetailMovie = PagerAdapterDetailMovie(supportFragmentManager, lifecycle)
+        binding.viewPagerDetail.adapter = pagerAdapterDetailMovie
         TabLayoutMediator(binding.tabLayoutDetail, binding.viewPagerDetail){ tab, position->
             when(position){
                 0-> tab.text = "About"
