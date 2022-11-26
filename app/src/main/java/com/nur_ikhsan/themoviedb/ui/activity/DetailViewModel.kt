@@ -1,7 +1,12 @@
 package com.nur_ikhsan.themoviedb.ui.activity
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.nur_ikhsan.themoviedb.data.repository.RepositoryMovies
+import com.nur_ikhsan.themoviedb.data.response.ResultMovie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -29,6 +34,12 @@ class DetailViewModel
     fun getCrewMovie(movie_id: String) = repositoryMovies.getCrewMovie(movieId = movie_id)
 
     fun getReviewsMovie(movie_id: String) = repositoryMovies.getReviews(movieId = movie_id)
+
+    fun getRecommendationMovie(movie_id: String) : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getRecommendation(movieId = movie_id).cachedIn(viewModelScope)
+
+    fun getSimilar(movie_id: String) : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getSimilar(movieId = movie_id).cachedIn(viewModelScope)
 
 
 

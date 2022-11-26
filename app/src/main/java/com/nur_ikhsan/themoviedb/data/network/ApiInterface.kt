@@ -62,4 +62,12 @@ interface ApiInterface {
     @GET("keyword/{keyword_id}/movies?api_key=$API_KEY")
     suspend fun getKeywordsMovie(@Path("keyword_id") keywordId : String, @Query("page") page: Int) : Response<ResponseMovies>
 
+    @GET("movie/{movie_id}/recommendations?api_key=$API_KEY")
+    suspend fun getRecommendationMovie(@Path("movie_id") movieId: String,
+                                       @Query("page") page: Int) : Response<ResponseMovies>
+
+    @GET("movie/{movie_id}/similar?api_key=$API_KEY")
+    suspend fun getSimilarMovie(@Path("movie_id") movieId: String,
+                                @Query("page") page: Int) : Response<ResponseMovies>
+
 }

@@ -303,6 +303,8 @@ class DetailMovieActivity : AppCompatActivity() {
                 0-> tab.text = "About"
                 1-> tab.text = "Cast"
                 2-> tab.text = "Crew"
+                3-> tab.text = "Recommendation"
+                4-> tab.text = "Similar"
             }
         }.attach()
     }

@@ -115,6 +115,20 @@ class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterfac
         ), pagingSourceFactory = {PagingSourceMovieByKeyword(apiInterface, keywordId = keywordId)}
     ).liveData
 
+    fun getRecommendation(movieId: String) =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+        ), pagingSourceFactory = {PagingRecommendation(apiInterface, movieId = movieId)}
+        ).liveData
+
+    fun getSimilar(movieId: String) =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+        ), pagingSourceFactory = {PagingSimilar(apiInterface, movieId = movieId)}
+        ).liveData
+
 
     fun getReviews(movieId: String) : LiveData<List<ReviewsItem>>{
         val reviews = MutableLiveData<List<ReviewsItem>>()

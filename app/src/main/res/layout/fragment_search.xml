@@ -27,8 +27,9 @@
             android:layout_height="wrap_content"
             android:paddingStart="-30dp"
             app:iconifiedByDefault="false"
+            android:layout_marginEnd="10dp"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search...."
+            app:queryHint="Search Movie...."
             app:searchIcon="@android:color/transparent"
             tools:ignore="RtlSymmetry" />
 
