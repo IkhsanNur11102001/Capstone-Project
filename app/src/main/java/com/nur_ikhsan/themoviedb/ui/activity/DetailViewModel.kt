@@ -43,6 +43,9 @@ class DetailViewModel
 
     fun getDetailCredits(creditsId : String) = repositoryMovies.getDetailCredits(creditsId = creditsId)
 
+    fun getMovieByCredits(with_people : String) : LiveData<PagingData<ResultMovie>> =
+        repositoryMovies.getMovieByCredits(withPeople = with_people).cachedIn(viewModelScope)
+
 
 
 }

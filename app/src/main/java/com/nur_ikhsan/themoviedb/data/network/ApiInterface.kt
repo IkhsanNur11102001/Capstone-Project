@@ -73,4 +73,8 @@ interface ApiInterface {
     @GET("person/{person_id}?api_key=$API_KEY")
     fun getDetailCredits(@Path("person_id") personId : String) : Call<ResponseDetailCredits>
 
+    @GET("discover/movie?api_key=$API_KEY")
+    suspend fun getMovieByCredits(@Query("with_people") withPeople : String, @Query("page") page: Int) : Response<ResponseMovies>
+
+
 }

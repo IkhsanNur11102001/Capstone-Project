@@ -129,6 +129,13 @@ class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterfac
         ), pagingSourceFactory = {PagingSimilar(apiInterface, movieId = movieId)}
         ).liveData
 
+    fun getMovieByCredits(withPeople: String) =
+        Pager( config = PagingConfig(
+            pageSize = 5,
+            maxSize = 20,
+        ), pagingSourceFactory = {PagingMovieCredits(apiInterface, withPeople = withPeople)}
+        ).liveData
+
 
     fun getDetailCredits(creditsId : String) : LiveData<ResponseDetailCredits>{
         val credits = MutableLiveData<ResponseDetailCredits>()

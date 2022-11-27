@@ -42,6 +42,7 @@ class DetailCreditsActivity : AppCompatActivity() {
             TabLayoutMediator(tabLayoutDetail, viewPagerDetail){ tab, position->
                 when(position){
                     0-> tab.text = "About"
+                    1-> tab.text = "Movie"
                 }
             }.attach()
         }
@@ -52,6 +53,36 @@ class DetailCreditsActivity : AppCompatActivity() {
         binding.toolbarMovie.setNavigationOnClickListener {
             onBackPressed()
         }
+        binding.toolbarMovie.setOnMenuItemClickListener {
+            when(it.itemId){
+
+                R.id.btn_share -> Intent(Intent.ACTION_SEND).also { intent ->
+                    intent.type = "text/plain"
+                    intent.putExtra(Intent.EXTRA_TEXT, "$SHARE$creditsId")
+                    startActivity(Intent.createChooser(intent, "Share with..."))
+                }
+
+                R.id.btn_wiki -> Intent(Intent.ACTION_VIEW).also { intent ->
+                    intent.data = Uri.parse("$WIKIPEDIA$creditsName")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                }
+
+                R.id.btn_tmdb -> Intent(Intent.ACTION_VIEW).also { intent ->
+                    intent.data = Uri.parse("$TMDB_MOVIE$creditsId")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                }
+
+                R.id.btn_google -> Intent(Intent.ACTION_VIEW).also { intent ->
+                    intent.data = Uri.parse("$GOOGLE$creditsName")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                }
+            }
+            true
+        }
+
         viewModel.getDetailCredits(creditsId).observe(this){ credits->
             if (credits != null){
                 binding.apply {
@@ -63,38 +94,6 @@ class DetailCreditsActivity : AppCompatActivity() {
                         transformations(CircleCropTransformation())
                         error(R.drawable.ic_profile)
                     }
-                }
-            }
-            binding.apply {
-
-                toolbarBottomDetail.setOnMenuItemClickListener {
-                    when(it.itemId){
-
-                        R.id.btn_share -> Intent(Intent.ACTION_SEND).also { intent ->
-                            intent.type = "text/plain"
-                            intent.putExtra(Intent.EXTRA_TEXT, "$SHARE$creditsId")
-                            startActivity(Intent.createChooser(intent, "Share with..."))
-                        }
-
-                        R.id.btn_wiki -> Intent(Intent.ACTION_VIEW).also { intent ->
-                            intent.data = Uri.parse("$WIKIPEDIA$creditsName")
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                            startActivity(intent)
-                        }
-
-                        R.id.btn_tmdb -> Intent(Intent.ACTION_VIEW).also { intent ->
-                            intent.data = Uri.parse("$TMDB_MOVIE$creditsId")
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                            startActivity(intent)
-                        }
-
-                        R.id.btn_google -> Intent(Intent.ACTION_VIEW).also { intent ->
-                            intent.data = Uri.parse("$GOOGLE$creditsName")
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                            startActivity(intent)
-                        }
-                    }
-                    true
                 }
             }
         }
