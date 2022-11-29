@@ -73,6 +73,7 @@
           android:layout_width="match_parent"
           android:layout_height="?android:attr/actionBarSize"
           app:layout_collapseMode="pin"
+          android:theme="@style/ToolbarTheme"
           android:background="@android:color/transparent"
           app:popupTheme="@android:style/ThemeOverlay.Material.Light"
           app:navigationIcon="@drawable/ic_back"

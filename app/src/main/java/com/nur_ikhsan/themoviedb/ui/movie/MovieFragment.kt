@@ -12,11 +12,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.FragmentMovieBinding
-import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteViewModel
 import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.TrailersAdapter
-import com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistAdapter
-import com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,14 +21,8 @@ class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<MovieViewModel>()
-    private val viewModelWatchlist by viewModels<WatchlistViewModel>()
-    private val favoriteViewModel by viewModels<FavoriteViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,9 +34,7 @@ class MovieFragment : Fragment() {
         initPopularMovies()
         initUpComingMovies()
         initNowPlayingMovies()
-        initWatchlist()
         initToolbar()
-        initFavorite()
         initTextView()
         initNetflixMovie()
         initAppleTv()
@@ -57,31 +45,8 @@ class MovieFragment : Fragment() {
     }
 
 
-    private fun initFavorite() {
-            val trailersAdapter = TrailersAdapter{
-                if (it.isBookmarked){
-                    favoriteViewModel.deleteFavorite(it)
-                }else{
-                    favoriteViewModel.saveFavorite(it)
-                }
-            }
-
-            favoriteViewModel.getBookmarkState().observe(viewLifecycleOwner){
-                trailersAdapter.submitList(it)
-                binding.itemFavorite.isVisible = it.isNotEmpty()
-            }
-
-            binding.rvFavorite.adapter = trailersAdapter
-            binding.rvFavorite.layoutManager = LinearLayoutManager(context,
-                LinearLayoutManager.HORIZONTAL, false)
-        }
-
-
     private fun initTextView() {
         binding.apply {
-            tvWatchlist.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_home_to_navigation_notifications)
-            }
             tvTopRated.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_topRatedFragment)
             }
@@ -93,9 +58,6 @@ class MovieFragment : Fragment() {
             }
             tvNowPlaying.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_nowPlayingFragment)
-            }
-            tvTrailers.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_home_to_navigation_favorite)
             }
             tvNetflix.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_home_to_netflixFragment)
@@ -130,20 +92,6 @@ class MovieFragment : Fragment() {
             }
         }
     }
-
-    private fun initWatchlist() {
-        viewModelWatchlist.watchlist.observe(viewLifecycleOwner){ watchlist->
-            if (watchlist!!.isNotEmpty()){
-                val watchlistAdapter = WatchlistAdapter(watchlist)
-                binding.rvWatchlist.adapter = watchlistAdapter
-                binding.rvWatchlist.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                binding.itemWatchlist.isVisible = true
-            }else{
-                binding.itemWatchlist.isVisible = false
-            }
-        }
-    }
-
 
     //paramount
     private fun initParamount() {

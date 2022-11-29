@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "859956667999",
+    "project_id": "capstone-project-f2a31",
+    "storage_bucket": "capstone-project-f2a31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859956667999:android:078848fb94e63bcfad1dea",
+        "android_client_info": {
+          "package_name": "com.nur_ikhsan.themoviedb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859956667999-f4o0und73t9tvevf9l9arsd6b1op7q50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjFisCePcx6ToPq6j0fB4qByj8meP4zOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859956667999-f4o0und73t9tvevf9l9arsd6b1op7q50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

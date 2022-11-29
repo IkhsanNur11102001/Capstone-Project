@@ -168,7 +168,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/secondary_color"
-        android:theme="@android:style/ThemeOverlay.Material.Light"
+        android:theme="@style/ToolbarTheme"
         app:menu="@menu/btn_share">
 
         <LinearLayout

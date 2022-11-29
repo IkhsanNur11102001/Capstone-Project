@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +15,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleTextColor="@color/light_grey"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+        android:theme="@style/ToolbarTheme"/>
 
-</RelativeLayout>
+
+        <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_collection"
+            android:layout_marginTop="30dp"
+            android:text="@string/your_watchlist"
+            android:padding="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/light_grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:drawableEndCompat="@drawable/ic_next" />
+
+    <TextView
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_collection"
+        android:layout_marginTop="30dp"
+        android:text="@string/your_favorite_trailers"
+        android:padding="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/light_grey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:drawableEndCompat="@drawable/ic_next" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/orange"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

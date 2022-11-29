@@ -57,4 +57,18 @@
     <string name="born_on">Born on</string>
     <string name="from">From</string>
     <string name="google">Google</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="your_password">Your Password....</string>
+    <string name="your_email">Your Email....</string>
+    <string name="logout">Logout</string>
+    <string name="don_t_have_account">Don\'t have account?</string>
+    <string name="skip_this_page">Skip this page</string>
+    <string name="login_terlebih_dahulu_untuk_nmelihat_watchlist_anda">Login terlebih dahulu untuk\nmelihat watchlist anda</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="your_watchlist">Your watchlist movies</string>
+    <string name="your_favorite_trailers">Your favorite trailers</string>
+
 </resources>

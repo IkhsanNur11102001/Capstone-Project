@@ -56,7 +56,6 @@
         android:name="com.nur_ikhsan.themoviedb.ui.favorite.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistFragment"
@@ -72,12 +71,11 @@
         android:name="com.nur_ikhsan.themoviedb.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search"/>
-
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.nur_ikhsan.themoviedb.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/topRatedFragment"
         android:name="com.nur_ikhsan.themoviedb.ui.movie.TopRatedFragment"

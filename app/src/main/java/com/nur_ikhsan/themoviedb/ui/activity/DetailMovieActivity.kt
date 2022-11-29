@@ -75,13 +75,13 @@ class DetailMovieActivity : AppCompatActivity() {
                 initViewModel(movieId)
 
                 binding.btnProviders.setOnClickListener {
-                    initBottomSheetProviders(movieId)
+                        initBottomSheetProviders(movieId)
                 }
 
-                        binding.btnReviews.setOnClickListener {
-                            detailViewModel.getReviewsMovie(movieId).observe(this){
-                                if (it.isNotEmpty()){
-                                    initBottomSheetReviews(movieId)
+                binding.btnReviews.setOnClickListener {
+                    detailViewModel.getReviewsMovie(movieId).observe(this){
+                        if (it.isNotEmpty()){
+                            initBottomSheetReviews(movieId)
                         }else{
                             Toast.makeText(this, "No reviews for $titleMovie", Toast.LENGTH_SHORT).show()
                         }
@@ -282,17 +282,17 @@ class DetailMovieActivity : AppCompatActivity() {
         }
 
         binding.btnWatchlist.setOnClickListener {
-            isCheck = !isCheck
-            if (isCheck) {
-                viewModel.addToWatchlist(titleMovie, movieId, posterPath)
-                Toast.makeText(this, "$titleMovie, berhasil ditambahkan ke watchlist", Toast.LENGTH_SHORT).show()
-            }else{
-                viewModel.removeFromWatchlist(movieId)
-                Toast.makeText(this, "$titleMovie, berhasil dihapus dari watchlist", Toast.LENGTH_SHORT).show()
+                isCheck = !isCheck
+                if (isCheck) {
+                    viewModel.addToWatchlist(titleMovie, movieId, posterPath)
+                    Toast.makeText(this, "$titleMovie, berhasil ditambahkan ke watchlist", Toast.LENGTH_SHORT).show()
+                }else{
+                    viewModel.removeFromWatchlist(movieId)
+                    Toast.makeText(this, "$titleMovie, berhasil dihapus dari watchlist", Toast.LENGTH_SHORT).show()
+                }
+                binding.btnWatchlist.isChecked = isCheck
             }
-            binding.btnWatchlist.isChecked = isCheck
         }
-    }
 
 
     private fun initPagerAdapter() {
