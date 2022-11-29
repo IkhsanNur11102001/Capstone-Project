@@ -20,119 +20,103 @@ class RepositoryMovies @Inject constructor(private val apiInterface: ApiInterfac
 
     fun getToRatedMovies() = Pager(
         config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = { PagingSourceTopRated(apiInterface = apiInterface) }
     ).liveData
 
 
     fun getPopularMovies() = Pager(
         config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = { PagingSourcePopular(apiInterface = apiInterface) }
     ).liveData
 
 
     fun getUpComingMovies() = Pager(
         config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = { PagingSourceUpComing(apiInterface = apiInterface) }
     ).liveData
 
 
     fun getNowPlayingMovies() = Pager(
         config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = { PagingSourceNowPlaying(apiInterface = apiInterface) }
     ).liveData
 
 
     fun getMoviesByGenres(genresId : String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceMovieGenres(apiInterface, genresId = genresId)}
         ).liveData
 
     fun getResultMovies(query : String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceResultMovie(apiInterface, query = query)}
         ).liveData
 
     fun getResultKeyword(query : String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceResultKeyword(apiInterface, query = query)}
         ).liveData
 
     fun getNetflixMovies() =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceNetflix(apiInterface = apiInterface)}
         ).liveData
 
 
     fun getAppleMovies() =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceApple(apiInterface = apiInterface)}
         ).liveData
 
 
     fun getDisneyMovies() =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceDisney(apiInterface = apiInterface)}
         ).liveData
 
     fun getHboMax() =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceHboMax(apiInterface)}
     ).liveData
 
     fun getParamount() =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceParamount(apiInterface)}
         ).liveData
 
     fun getMovieByKeyword(keywordId : String) =
         Pager(config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20
+            pageSize = 5
         ), pagingSourceFactory = {PagingSourceMovieByKeyword(apiInterface, keywordId = keywordId)}
     ).liveData
 
     fun getRecommendation(movieId: String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20,
+            pageSize = 5
         ), pagingSourceFactory = {PagingRecommendation(apiInterface, movieId = movieId)}
         ).liveData
 
     fun getSimilar(movieId: String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20,
+            pageSize = 5
         ), pagingSourceFactory = {PagingSimilar(apiInterface, movieId = movieId)}
         ).liveData
 
     fun getMovieByCredits(withPeople: String) =
         Pager( config = PagingConfig(
-            pageSize = 5,
-            maxSize = 20,
+            pageSize = 5
         ), pagingSourceFactory = {PagingMovieCredits(apiInterface, withPeople = withPeople)}
         ).liveData
 

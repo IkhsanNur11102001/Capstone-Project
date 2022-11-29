@@ -43,7 +43,6 @@ class AdapterMovies : PagingDataAdapter<ResultMovie, AdapterMovies.ViewHolder>(C
                         .transition(DrawableTransitionOptions.withCrossFade(100))
                         .transform(RoundedCorners(30))
                         .into(imageMovie)
-
             }
         }
     }

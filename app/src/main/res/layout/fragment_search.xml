@@ -46,7 +46,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvResultMovie"
         android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_height="match_parent"
         android:layout_below="@id/rvResultKeyWord"
         android:padding="5dp" />
