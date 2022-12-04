@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_color"
+    tools:context=".ui.favorite.FavoriteFragment">
+
+    <LinearLayout
+        android:id="@+id/tvFavorite"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite"
+            android:textColor="@color/light_grey"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutFavorite"
+        android:layout_below="@id/tvFavorite"
+        app:tabMode="scrollable"
+        android:layout_marginTop="5dp"
+        app:tabTextAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        app:tabTextColor="@color/light_grey"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabIndicatorColor="@color/orange"
+        app:tabRippleColor="@color/light_grey"
+        app:tabSelectedTextColor="@color/orange"
+        android:background="@color/primary_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayoutFavorite" />
+
+
+</RelativeLayout>

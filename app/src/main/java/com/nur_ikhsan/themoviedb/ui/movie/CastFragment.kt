@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nur_ikhsan.themoviedb.databinding.FragmentCastBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.CastAdapter
+import com.nur_ikhsan.themoviedb.adapter.CastAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

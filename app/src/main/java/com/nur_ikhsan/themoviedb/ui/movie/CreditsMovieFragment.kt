@@ -9,11 +9,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.FragmentCreditsMovieBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailCreditsActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
+import com.nur_ikhsan.themoviedb.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

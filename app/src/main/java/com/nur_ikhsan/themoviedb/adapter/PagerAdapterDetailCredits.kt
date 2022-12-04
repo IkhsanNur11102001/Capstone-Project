@@ -1,4 +1,4 @@
-package com.nur_ikhsan.themoviedb.ui.movie.adapter
+package com.nur_ikhsan.themoviedb.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

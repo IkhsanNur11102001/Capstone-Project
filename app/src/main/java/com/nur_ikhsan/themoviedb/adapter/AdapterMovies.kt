@@ -1,10 +1,9 @@
-package com.nur_ikhsan.themoviedb.ui.movie.adapter
+package com.nur_ikhsan.themoviedb.adapter
 
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView

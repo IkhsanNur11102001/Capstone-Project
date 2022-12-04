@@ -125,7 +125,21 @@
                     android:layout_height="?android:attr/actionBarSize"
                     app:titleMarginEnd="20dp"
                     app:navigationIcon="@drawable/ic_back"
-                    app:popupTheme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+                    app:popupTheme="@android:style/ThemeOverlay.Material.Dark.ActionBar">
+
+                    <ToggleButton
+                        android:id="@+id/btnFavorite"
+                        android:layout_marginTop="2dp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/item_favorite"
+                        android:textOff=""
+                        android:textOn="" />
+
+                </androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -213,6 +227,7 @@
             android:background="@drawable/item_watchlist"
             android:textOff=""
             android:textOn="" />
+
 
     </androidx.appcompat.widget.Toolbar>
 

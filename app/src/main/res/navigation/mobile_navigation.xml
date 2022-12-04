@@ -53,9 +53,9 @@
 
     <fragment
         android:id="@+id/navigation_favorite"
-        android:name="com.nur_ikhsan.themoviedb.ui.favorite.DashboardFragment"
+        android:name="com.nur_ikhsan.themoviedb.ui.favorite.FavoriteFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_favorite" />
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistFragment"

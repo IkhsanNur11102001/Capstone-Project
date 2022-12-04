@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Capstone</string>
     <string name="title_home">Movie</string>
-    <string name="title_dashboard">Trailer</string>
+    <string name="title_dashboard">Favorite</string>
     <string name="title_notifications">Watchlist</string>
     <string name="top_rated">Top Rated</string>
     <string name="movie">Movie</string>
@@ -70,5 +70,8 @@
     <string name="update_profile">Update Profile</string>
     <string name="your_watchlist">Your watchlist movies</string>
     <string name="your_favorite_trailers">Your favorite trailers</string>
+    <string name="trailers_amp_people"><![CDATA[Trailers & People]]></string>
+    <string name="your_favorite_movies">Your Favorite Movies</string>
+    <string name="your_username">Your Username</string>
 
 </resources>

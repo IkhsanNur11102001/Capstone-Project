@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.FragmentProfileBinding
 import com.nur_ikhsan.themoviedb.ui.auth.LoginActivity
-import com.nur_ikhsan.themoviedb.ui.auth.RegisterActivity
+import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteMoviesActivity
+import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteTrailersActivity
+import com.nur_ikhsan.themoviedb.ui.watchlist.WatchlistMoviesActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,10 +37,31 @@ class ProfileFragment : Fragment() {
             requireActivity().onBackPressed()
         }
 
+        binding.apply {
+            tvWatchlist.setOnClickListener {
+                Intent(context, WatchlistMoviesActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+
+            tvTrailersFavorite.setOnClickListener {
+                Intent(context, FavoriteTrailersActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+
+            tvMoviesFavorite.setOnClickListener {
+                Intent(context, FavoriteMoviesActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        }
+
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
         if (user != null){
-            binding.toolbarMovie.title = user.email
+            binding.toolbarMovie.title = user.displayName
+            binding.tvEmail.text = user.email
         }
 
         binding.btnLogout.setOnClickListener {

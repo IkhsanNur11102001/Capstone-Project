@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.FragmentCrewBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.CrewAdapter
+import com.nur_ikhsan.themoviedb.adapter.CrewAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

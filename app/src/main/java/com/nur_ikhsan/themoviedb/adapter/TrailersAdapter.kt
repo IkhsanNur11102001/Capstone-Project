@@ -1,4 +1,4 @@
-package com.nur_ikhsan.themoviedb.ui.movie.adapter
+package com.nur_ikhsan.themoviedb.adapter
 
 import android.annotation.SuppressLint
 import android.content.Intent

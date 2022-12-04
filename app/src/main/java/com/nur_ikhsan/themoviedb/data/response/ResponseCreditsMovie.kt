@@ -16,14 +16,8 @@ data class ResponseCreditsMovie(
 
 data class CastItem(
 
-	@field:SerializedName("cast_id")
-	val castId: String,
-
 	@field:SerializedName("character")
 	val character: String,
-
-	@field:SerializedName("credit_id")
-	val creditId: String,
 
 	@field:SerializedName("original_name")
 	val originalName: String,
@@ -39,9 +33,6 @@ data class CastItem(
 )
 
 data class CrewItem(
-
-	@field:SerializedName("credit_id")
-	val creditId: String,
 
 	@field:SerializedName("name")
 	val name: String,

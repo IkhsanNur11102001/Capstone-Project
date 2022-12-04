@@ -6,5 +6,5 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [WatchlistMovie::class], version = 1)
 abstract class WatchlistDatabase : RoomDatabase() {
-    abstract fun getWatchlistMovie() : MovieDao
+    abstract fun getWatchlistMovie() : WatchlistMovieDao
 }

@@ -25,8 +25,8 @@ import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
 import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteViewModel
 import com.nur_ikhsan.themoviedb.ui.genres.adapter.GenresDetailAdapter
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterReleaseMovie
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.TrailersAdapter
+import com.nur_ikhsan.themoviedb.adapter.AdapterReleaseMovie
+import com.nur_ikhsan.themoviedb.adapter.TrailersAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
 import java.util.*

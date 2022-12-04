@@ -1,20 +1,16 @@
 package com.nur_ikhsan.themoviedb.ui.activity
 
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.activity.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.ActivityDetailCreditsBinding
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.PagerAdapterDetailCredits
+import com.nur_ikhsan.themoviedb.adapter.PagerAdapterDetailCredits
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -58,7 +54,7 @@ class DetailCreditsActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding.toolbarMovie.setOnMenuItemClickListener {
+        binding.toolbarBottomDetail.setOnMenuItemClickListener {
             when(it.itemId){
 
                 R.id.btn_share -> Intent(Intent.ACTION_SEND).also { intent ->

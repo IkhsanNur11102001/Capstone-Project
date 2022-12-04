@@ -1,4 +1,4 @@
-package com.nur_ikhsan.themoviedb.ui.movie.adapter
+package com.nur_ikhsan.themoviedb.adapter
 
 import android.content.Intent
 import android.net.Uri
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.data.response.ReviewsItem
 import com.nur_ikhsan.themoviedb.databinding.ItemReviewsBinding

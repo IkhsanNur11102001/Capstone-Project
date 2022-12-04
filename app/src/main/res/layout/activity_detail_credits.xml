@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_color"
     tools:context=".ui.activity.DetailCreditsActivity">
+
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_above="@id/toolbarBottomDetail">
 
 
   <com.google.android.material.appbar.AppBarLayout
@@ -76,8 +81,7 @@
           android:theme="@style/ToolbarTheme"
           android:background="@android:color/transparent"
           app:popupTheme="@android:style/ThemeOverlay.Material.Light"
-          app:navigationIcon="@drawable/ic_back"
-          app:menu="@menu/btn_share_credits"/>
+          app:navigationIcon="@drawable/ic_back"/>
 
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -112,4 +116,18 @@
 
   </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbarBottomDetail"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/secondary_color"
+      android:theme="@style/ToolbarTheme"
+      android:layout_alignParentBottom="true"
+      app:menu="@menu/btn_share_credits">
+
+  </androidx.appcompat.widget.Toolbar>
+
+</RelativeLayout>

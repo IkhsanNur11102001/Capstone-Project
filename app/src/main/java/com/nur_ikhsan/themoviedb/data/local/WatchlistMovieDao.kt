@@ -7,7 +7,7 @@ import androidx.room.Query
 
 
 @Dao
-interface MovieDao {
+interface WatchlistMovieDao {
 
     @Insert
     suspend fun addToWatchlist(watchlistMovie: WatchlistMovie)

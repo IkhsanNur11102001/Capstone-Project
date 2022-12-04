@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-class RepositoryFavorite @Inject constructor(private val apiInterface: ApiInterface, private val trailersDao: TrailersDao) {
+class RepositoryFavoriteTrailers @Inject constructor(private val apiInterface: ApiInterface, private val trailersDao: TrailersDao) {
 
     fun getTrailers(movieId : String) : LiveData<Result<List<TrailersFavorite>>> = liveData {
         emit(Result.Loading)

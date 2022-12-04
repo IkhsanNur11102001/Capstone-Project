@@ -1,10 +1,9 @@
-package com.nur_ikhsan.themoviedb.ui.movie.adapter
+package com.nur_ikhsan.themoviedb.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.nur_ikhsan.themoviedb.data.response.ReleaseDatesItem
 import com.nur_ikhsan.themoviedb.data.response.ReleaseItem
 import com.nur_ikhsan.themoviedb.databinding.ItemReleaseBinding
 import com.nur_ikhsan.themoviedb.utils.DateFormat

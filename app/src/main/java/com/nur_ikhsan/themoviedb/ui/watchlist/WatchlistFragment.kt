@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.nur_ikhsan.themoviedb.adapter.WatchlistAdapter
 import com.nur_ikhsan.themoviedb.databinding.FragmentWatchlistBinding
 
 import dagger.hilt.android.AndroidEntryPoint

@@ -26,8 +26,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.nur_ikhsan.themoviedb.BuildConfig.URL_IMAGE
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.ActivityDetailMovieBinding
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.PagerAdapterDetailMovie
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.ReviewsAdapter
+import com.nur_ikhsan.themoviedb.adapter.PagerAdapterDetailMovie
+import com.nur_ikhsan.themoviedb.adapter.ReviewsAdapter
+import com.nur_ikhsan.themoviedb.ui.favorite.FavoriteViewModel
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterBuy
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterRent
 import com.nur_ikhsan.themoviedb.ui.providers.ProvidersAdapterStream
@@ -47,6 +48,7 @@ class DetailMovieActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailMovieBinding
     private lateinit var pagerAdapterDetailMovie: PagerAdapterDetailMovie
     private val viewModel by viewModels<WatchlistViewModel>()
+    private val favoriteViewModel by viewModels<FavoriteViewModel>()
     private val detailViewModel by viewModels<DetailViewModel>()
 
     //bottom sheet
@@ -77,6 +79,7 @@ class DetailMovieActivity : AppCompatActivity() {
             if (movieId != null && titleMovie != null && posterPath != null){
                 initToolbar(titleMovie, movieId)
                 initWatchlist(movieId, titleMovie, posterPath)
+                initFavorite(movieId, titleMovie, posterPath)
                 initViewModel(movieId)
 
                 binding.btnProviders.setOnClickListener {
@@ -268,6 +271,34 @@ class DetailMovieActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private fun initFavorite(movieId: String, titleMovie: String, posterPath: String) {
+        var isCheck = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val count = favoriteViewModel.checkFavorite(movieId)
+            withContext(Main){
+                if (count > 0){
+                    binding.btnFavorite.isChecked = true
+                    isCheck = true
+                }else{
+                    binding.btnFavorite.isChecked = false
+                    isCheck = false
+                }
+            }
+        }
+
+        binding.btnFavorite.setOnClickListener {
+            isCheck = !isCheck
+            if (isCheck){
+                favoriteViewModel.addToFavorite(titleMovie, movieId, posterPath)
+                Toast.makeText(this, "$titleMovie, berhasil ditambahkan ke favorite", Toast.LENGTH_SHORT).show()
+            }else{
+                favoriteViewModel.removeFromFavorite(movieId)
+                Toast.makeText(this, "$titleMovie, berhasil dihapus dari favorite", Toast.LENGTH_SHORT).show()
+            }
+            binding.btnFavorite.isChecked = isCheck
         }
     }
 

@@ -3,10 +3,10 @@ package com.nur_ikhsan.themoviedb.data.di
 import android.content.Context
 import androidx.room.Room
 import com.nur_ikhsan.themoviedb.BuildConfig.BASE_URL
+import com.nur_ikhsan.themoviedb.data.local.FavoriteMoviesDatabase
 import com.nur_ikhsan.themoviedb.data.local.TrailersDataBase
 import com.nur_ikhsan.themoviedb.data.local.WatchlistDatabase
 import com.nur_ikhsan.themoviedb.data.network.ApiInterface
-import com.nur_ikhsan.themoviedb.data.repository.RepositoryFavorite
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +21,7 @@ import javax.inject.Singleton
 object AppModule {
 
 
+
     @Singleton
     @Provides
     fun providesTrailersDatabase(@ApplicationContext app : Context) = Room.databaseBuilder(
@@ -30,6 +31,8 @@ object AppModule {
     @Provides
     fun providesTrailersDao(db : TrailersDataBase) = db.trailersDao()
 
+
+
     @Singleton
     @Provides
     fun providesMovieDatabase(@ApplicationContext app : Context) = Room.databaseBuilder(
@@ -38,6 +41,19 @@ object AppModule {
     @Singleton
     @Provides
     fun providesWatchlistDao(db : WatchlistDatabase) = db.getWatchlistMovie()
+
+
+
+    @Singleton
+    @Provides
+    fun providesFavoriteMoviesDatabase(@ApplicationContext app : Context) = Room.databaseBuilder(
+        app, FavoriteMoviesDatabase::class.java, "favoritemovies").build()
+
+    @Singleton
+    @Provides
+    fun providesFavoritesMoviesDao(db : FavoriteMoviesDatabase) = db.getFavoriteMovies()
+
+
 
     @Singleton
     @Provides

@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nur_ikhsan.themoviedb.databinding.FragmentUpComingBinding
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
+import com.nur_ikhsan.themoviedb.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

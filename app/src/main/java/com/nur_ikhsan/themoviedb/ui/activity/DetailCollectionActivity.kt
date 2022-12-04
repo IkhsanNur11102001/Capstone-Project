@@ -17,7 +17,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.nur_ikhsan.themoviedb.BuildConfig
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.ActivityDetailCollectionBinding
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.CollectionAdapter
+import com.nur_ikhsan.themoviedb.adapter.CollectionAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

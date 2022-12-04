@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.nur_ikhsan.themoviedb.databinding.ActivityLoginBinding
 import com.nur_ikhsan.themoviedb.ui.activity.MainActivity
@@ -61,17 +62,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
+        binding.progressBar.isVisible = true
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
                 if (it.isSuccessful){
                     Intent(this, MainActivity::class.java).also { intent ->
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
-                        Toast.makeText(this, "Login berhasil selamat datang $email", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                         finish()
+                        binding.progressBar.isVisible = false
                     }
+
                 }else{
                     Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
+                    binding.progressBar.isVisible = false
                 }
             }
     }

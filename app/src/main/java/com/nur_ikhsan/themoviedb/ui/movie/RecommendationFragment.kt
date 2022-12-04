@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.nur_ikhsan.themoviedb.databinding.FragmentRecommendationBinding
 import com.nur_ikhsan.themoviedb.ui.activity.DetailMovieActivity
 import com.nur_ikhsan.themoviedb.ui.activity.DetailViewModel
-import com.nur_ikhsan.themoviedb.ui.movie.adapter.AdapterMovies
+import com.nur_ikhsan.themoviedb.adapter.AdapterMovies
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
