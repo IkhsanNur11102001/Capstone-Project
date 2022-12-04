@@ -41,7 +41,7 @@ class AdapterMovies : PagingDataAdapter<ResultMovie, AdapterMovies.ViewHolder>(C
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .error(R.drawable.bg_image)
                         .transition(DrawableTransitionOptions.withCrossFade(100))
-                        .transform(RoundedCorners(30))
+                        .transform(RoundedCorners(20))
                         .into(imageMovie)
             }
         }

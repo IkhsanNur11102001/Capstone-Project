@@ -35,19 +35,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                android:layout_marginTop="30dp"
                 app:popupTheme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCollection"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
+    <LinearLayout
+        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCollection"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -20,7 +20,7 @@ data class ResponseDetailMovie(
 	val backdropPath: String,
 
 	@field:SerializedName("revenue")
-	val revenue: Int,
+	val revenue: Number,
 
 	@field:SerializedName("genres")
 	val genres: List<GenresMovies>,
@@ -38,7 +38,7 @@ data class ResponseDetailMovie(
 	val voteCount: Int,
 
 	@field:SerializedName("budget")
-	val budget: Int,
+	val budget: Number,
 
 	@field:SerializedName("overview")
 	val overview: String,

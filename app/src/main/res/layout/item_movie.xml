@@ -19,7 +19,7 @@
         android:textColor="@color/light_grey"
         android:maxLines="2"
         android:ellipsize="end"
-        android:layout_width="110dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

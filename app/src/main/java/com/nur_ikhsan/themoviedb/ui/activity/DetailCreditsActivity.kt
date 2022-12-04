@@ -1,9 +1,13 @@
 package com.nur_ikhsan.themoviedb.ui.activity
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -53,6 +57,7 @@ class DetailCreditsActivity : AppCompatActivity() {
         binding.toolbarMovie.setNavigationOnClickListener {
             onBackPressed()
         }
+
         binding.toolbarMovie.setOnMenuItemClickListener {
             when(it.itemId){
 
@@ -106,5 +111,6 @@ class DetailCreditsActivity : AppCompatActivity() {
         const val GOOGLE = "https://www.google.com/search?q="
         const val WIKIPEDIA = "https://en.wikipedia.org/wiki/"
         const val TMDB_MOVIE = "https://www.themoviedb.org/person/"
+
     }
 }

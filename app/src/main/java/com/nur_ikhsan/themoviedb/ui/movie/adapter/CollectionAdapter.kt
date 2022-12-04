@@ -33,7 +33,7 @@ class CollectionAdapter(private val collection : List<CollectionItem>) : Recycle
                     .load(Uri.parse("https://image.tmdb.org/t/p/w342/$poster"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .transition(DrawableTransitionOptions.withCrossFade(100))
-                    .transform(RoundedCorners(30))
+                    .transform(RoundedCorners(20))
                     .into(imageMovie)
 
                 tvTitleMovie.text = collectionItem.title

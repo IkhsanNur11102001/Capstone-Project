@@ -1,11 +1,15 @@
 package com.nur_ikhsan.themoviedb.ui.activity
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -63,6 +67,7 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val extras = intent.extras
         if (extras != null){
@@ -310,6 +315,13 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun initToolbar(titleMovie: String, movieId : String) {
+
+        @Suppress("DEPRECATION")
+        ((View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN).also { window.decorView.systemUiVisibility = it })
+        @Suppress("DEPRECATION")
+        (setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false))
+        window.statusBarColor = Color.TRANSPARENT
+
         binding.apply {
 
             setSupportActionBar(toolbarMovie)
@@ -358,6 +370,17 @@ class DetailMovieActivity : AppCompatActivity() {
         const val JUST_WATCH = "https://www.justwatch.com/us/search?content_type=movie&q="
         const val WIKIPEDIA = "https://en.wikipedia.org/wiki/"
         const val TMDB_MOVIE = "https://www.themoviedb.org/movie/"
+
+        fun setWindowFlag(activity: Activity, bits: Int, on: Boolean) {
+            val window = activity.window
+            val winParams = window.attributes
+            if (on) {
+                winParams.flags = winParams.flags or bits
+            } else {
+                winParams.flags = winParams.flags and bits.inv()
+            }
+            window.attributes = winParams
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

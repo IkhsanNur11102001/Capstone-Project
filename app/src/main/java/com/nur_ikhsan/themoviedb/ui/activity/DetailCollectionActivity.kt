@@ -1,10 +1,14 @@
 package com.nur_ikhsan.themoviedb.ui.activity
 
+import android.app.Activity
 import android.content.res.Configuration
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
@@ -26,6 +30,12 @@ class DetailCollectionActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityDetailCollectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        @Suppress("DEPRECATION")
+        ((View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN).also { window.decorView.systemUiVisibility = it })
+        @Suppress("DEPRECATION")
+        setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
+        window.statusBarColor = Color.TRANSPARENT
 
         val extras = intent.extras
         if (extras != null){
@@ -74,6 +84,17 @@ class DetailCollectionActivity : AppCompatActivity(){
 
     companion object{
         const val COLLECTION_ID = "collection_id"
+
+        fun setWindowFlag(activity: Activity, bits: Int, on: Boolean) {
+            val window = activity.window
+            val winParams = window.attributes
+            if (on) {
+                winParams.flags = winParams.flags or bits
+            } else {
+                winParams.flags = winParams.flags and bits.inv()
+            }
+            window.attributes = winParams
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
