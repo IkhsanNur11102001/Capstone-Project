@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
 import com.nur_ikhsan.themoviedb.R
 import com.nur_ikhsan.themoviedb.databinding.FragmentMovieBinding
 import com.nur_ikhsan.themoviedb.adapter.AdapterMovies
@@ -22,7 +21,6 @@ class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<MovieViewModel>()
-    private lateinit var auth : FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
@@ -43,12 +41,6 @@ class MovieFragment : Fragment() {
         initDisney()
         initHBOmax()
         initParamount()
-
-        auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
-        if (user != null){
-            binding.toolbarMovie.title = user.displayName
-        }
     }
 
 
