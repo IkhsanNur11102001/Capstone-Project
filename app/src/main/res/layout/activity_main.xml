@@ -14,12 +14,12 @@
         app:elevation="0dp"
         app:labelVisibilityMode="labeled"
         android:background="@color/secondary_color"
-        app:itemTextColor="@color/light_grey"
-        app:itemIconTint="@color/light_grey"
-        app:itemTextAppearanceActive="@android:style/TextAppearance.DeviceDefault.Small"
-        app:itemRippleColor="@color/light_grey"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemRippleColor="@color/orange"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu" />
+
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"

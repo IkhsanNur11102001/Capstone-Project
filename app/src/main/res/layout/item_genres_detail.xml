@@ -9,7 +9,7 @@
         android:id="@+id/tvGenres"
         android:text="@string/genres"
         android:padding="10dp"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/text_selected_color"
         android:textSize="15sp"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"

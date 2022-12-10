@@ -17,4 +17,5 @@
     <style name="ToolbarTheme">
         <item name="android:textColorSecondary">@color/white</item>
     </style>
+
 </resources>
